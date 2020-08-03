@@ -1,0 +1,21 @@
+.card-border {
+    border: black 1px solid;
+    padding: 25px;
+    margin-right: 25px;
+    margin-left: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transition: opacity 1s;
+}
+
+.card-border:hover {
+    opacity: 0.50;
+}
+
+.image {
+    padding: 50px;
+}
+
+.name {
+    padding: 50px;
+}

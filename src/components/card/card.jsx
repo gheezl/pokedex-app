@@ -1,16 +1,38 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, Component } from 'react';
 
 import "./card.css"
 
 
-const Card = () => {
-    return (
-        <Fragment>
-            <div className="card-border">
+class Card extends Component {
+    constructor() {
+        super();
+        this.state = {
+            pokemonImg: 1
+        }
+    }
 
-            </div>
-        </Fragment>
-    )
+
+    componentDidMount() {
+        fetch(this.props.pokemon.url)
+            .then(response => response.json())
+            .then(pokemon => this.setState({ pokemonImg: pokemon.sprites.front_default }))
+    }
+
+
+    render() {
+        return (
+            <Fragment>
+                <div className="card-border">
+                    <div className="image">
+                        <img alt="" src={this.state.pokemonImg} />
+                    </div>
+                    <div className="name">
+                        <span>{this.props.pokemon.name}</span>
+                    </div>
+                </div>
+            </Fragment>
+        )
+    }
 }
 
 export default Card;

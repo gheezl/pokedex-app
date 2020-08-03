@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { Link } from "react-router-dom";
 
 import "./header.css"
 
@@ -7,19 +8,19 @@ const Header = () => {
     return (
         <Fragment>
             <div className="header-border">
-                <div className="title">
+                <Link to="/" className="title">
                     <h1>Pokedex</h1>
-                </div>
+                </Link>
                 <div className="links">
-                    <div className="Search">
+                    <Link to="/search" className="Search">
                         <span>Search</span>
-                    </div>
-                    <div className="View-All">
+                    </Link>
+                    <Link to="/view-all" className="View-All">
                         <span>View All</span>
-                    </div>
-                    <div className="Profile">
+                    </Link>
+                    <Link to="/profile" className="Profile">
                         <span>Profile</span>
-                    </div>
+                    </Link>
                 </div>
             </div>
         </Fragment>
