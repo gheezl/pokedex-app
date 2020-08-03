@@ -11,7 +11,6 @@ class Card extends Component {
         }
     }
 
-
     componentDidMount() {
         fetch(this.props.pokemon.url)
             .then(response => response.json())

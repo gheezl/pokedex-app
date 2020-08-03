@@ -1,6 +1,9 @@
-import React, { Fragment, Suspense, lazy, Component } from 'react';
+import React, { Fragment, Suspense, lazy, Component, useCallback } from 'react';
+import { connect } from 'react-redux'
 
 import "./view-all.css"
+
+import { getPokemonStart } from "../../redux/pokemon/pokemon-actions.js"
 
 const Card = lazy(() => import("../../components/card/card.jsx"))
 
@@ -9,49 +12,33 @@ class ViewAll extends Component {
     constructor() {
         super();
         this.state = {
-            allPokemon: [1, 2],
-            count: 1,
-            next: 1,
-            previous: 1,
+            allPokemon: [1, 2, 3],
+            count: 1
         }
     }
 
+    // dispatch = useDispatch()
+    // getPokemon = useCallback(
+    //     () => this.dispatch({ getPokemonStart }),
+    //     [this.dispatch]
+    // )
+
 
     componentDidMount() {
-        fetch("https://pokeapi.co/api/v2/pokemon?limit=50")
+        getPokemonStart()
+        fetch("https://pokeapi.co/api/v2/pokemon?limit=964")
             .then(response => response.json())
-            .then(pokemon => this.setState({ allPokemon: pokemon.results, count: pokemon.count, next: pokemon.next, previous: pokemon.previous }))
-    }
-
-
-    previousPage = () => {
-        fetch(this.state.previous)
-            .then(response => response.json())
-            .then(pokemon => this.setState({ allPokemon: pokemon.results, count: pokemon.count, next: pokemon.next, previous: pokemon.previous }))
-    }
-
-
-    nextPage = () => {
-        fetch(this.state.next)
-            .then(response => response.json())
-            .then(pokemon => this.setState({ allPokemon: pokemon.results, count: pokemon.count, next: pokemon.next, previous: pokemon.previous }))
+            .then(pokemon => this.setState({ allPokemon: pokemon.results, count: pokemon.count }))
     }
 
 
     render() {
-        console.log(this.state)
         return (
             <Fragment>
-                <div className="number">
-                    <span onClick={this.previousPage} className="previous" >
-                        previous
-                    </span>
+                <div className="page-header">
                     <h2>
-                        all pokemon
+                        ⥊ all pokemon ⥋
                     </h2>
-                    <span onClick={this.nextPage} className="next">
-                        next
-                    </span>
                 </div>
                 <div className="card">
                     {
@@ -67,4 +54,8 @@ class ViewAll extends Component {
     }
 }
 
-export default ViewAll;
+const mapDispatchToProps = (dispatch) => ({
+    getPokemonStart: () => dispatch(getPokemonStart())
+})
+
+export default connect(null, mapDispatchToProps)(ViewAll);

@@ -1,0 +1,7 @@
+const PokemonActionTypes = {
+    GET_ALL_POKEMON_START: "GET_ALL_POKEMON_START",
+    GET_ALL_POKEMON_SUCCESS: "GET_ALL_POKEMON_SUCCESS",
+    GET_ALL_POKEMON_FAILURE: "GET_ALL_POKEMON_FAILURE"
+}
+
+export default PokemonActionTypes;
