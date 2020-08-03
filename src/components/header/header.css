@@ -1,0 +1,50 @@
+.header-border {
+    display: flex;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.title {
+    margin: 20px;
+    transition: opacity 1s;
+}
+
+.title:hover {
+    opacity: 0.50;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    margin-left: 75vw;
+}
+
+.Search {
+    margin: 20px;
+    transition: opacity 1s;
+}
+
+.Search:hover {
+    cursor: pointer;
+    opacity: 0.50;
+}
+
+.View-All {
+    margin: 20px;
+    transition: opacity 1s;
+}
+
+.View-All:hover {
+    cursor: pointer;
+    opacity: 0.50;
+}
+
+.Profile {
+    margin: 20px;
+    transition: opacity 1s;
+}
+
+.Profile:hover {
+    cursor: pointer;
+    opacity: 0.50;
+}
