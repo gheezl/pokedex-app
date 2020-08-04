@@ -7,7 +7,12 @@ export const selectAllPokemon = createSelector(
     (pokemon) => pokemon.allPokemon.results
 )
 
-export const SelectDisplayCard = createSelector(
+export const selectDisplayCard = createSelector(
     [selectPokemonState],
     (pokemon) => pokemon.displayCard
+)
+
+export const selectIndividualPokemon = createSelector(
+    [selectPokemonState],
+    (pokemon) => pokemon.individualPokemon
 )

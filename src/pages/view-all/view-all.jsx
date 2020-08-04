@@ -5,7 +5,7 @@ import { createStructuredSelector } from "reselect"
 import "./view-all.css"
 
 import { getPokemonStart } from "../../redux/pokemon/pokemon-actions.js"
-import { selectAllPokemon, SelectDisplayCard } from "../../redux/pokemon/pokemon-selectors.js"
+import { selectAllPokemon, selectDisplayCard } from "../../redux/pokemon/pokemon-selectors.js"
 
 import Loading from '../../components/loading/loading.jsx';
 
@@ -46,7 +46,7 @@ class ViewAll extends Component {
 
 const mapStateToProps = createStructuredSelector({
     allPokemon: selectAllPokemon,
-    displayCard: SelectDisplayCard
+    displayCard: selectDisplayCard
 })
 
 const mapDispatchToProps = (dispatch) => ({

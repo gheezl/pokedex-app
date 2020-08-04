@@ -21,10 +21,11 @@ function App() {
       <Header />
       <Switch>
         <Suspense fallback={<Loading />}>
-          <Route exact path="/" component={PokemonDisplay} />
+          <Route exact path="/" component={HomePage} />
           <Route exact path="/view-all" component={ViewAll} />
           <Route exact path="/search" component={Search} />
           <Route exact path="/profile" component={Profile} />
+          <Route exact path="/display" component={PokemonDisplay} />
         </Suspense>
       </Switch>
     </Fragment>

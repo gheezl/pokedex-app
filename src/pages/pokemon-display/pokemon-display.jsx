@@ -2,22 +2,26 @@ import React, { Fragment } from 'react';
 import { connect } from 'react-redux'
 import { createStructuredSelector } from "reselect"
 
+import { selectIndividualPokemon } from "../../redux/pokemon/pokemon-selectors.js"
+
 import "./pokemon-display.css"
 
 
-const PokemonDisplay = () => {
+const PokemonDisplay = ({ individualPokemon }) => {
+    console.log(individualPokemon)
+    const { abilities, forms, game_indices, height, held_items, id, location_area_encounters, moves, name, species, sprites, stats, types, weight } = individualPokemon
     return (
         <Fragment>
             <div className="name">
                 <span>
-                    pikachu:
+                    {name}:
                 </span>
                 <span className="num">
-                    num. 35
+                    num. {id}
                 </span>
             </div>
             <div className="sprite">
-                <img alt="sprite" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" height="200px" width="200px" />
+                <img alt="sprite" src={sprites.front_default} height="200px" width="200px" />
             </div>
             <div className="stats-header">
                 <h3>
@@ -32,6 +36,9 @@ const PokemonDisplay = () => {
     )
 }
 
+const mapStateToProps = createStructuredSelector({
+    individualPokemon: selectIndividualPokemon
+})
 
 
-export default PokemonDisplay;
+export default connect(mapStateToProps)(PokemonDisplay);

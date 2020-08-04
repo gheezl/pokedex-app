@@ -1,4 +1,5 @@
 import React, { Fragment, Component } from 'react';
+import { withRouter } from "react-router-dom"
 import { connect } from 'react-redux'
 import { createStructuredSelector } from "reselect"
 
@@ -23,14 +24,15 @@ class Card extends Component {
 
     componentWillUnmount() {
         this.props.getIndividualPokemonStart(this.props.pokemon.url)
+        this.props.history.push("/display")
         this.setState = (state, callback) => {
             return;
         }
     }
 
-    onClickFunction() {
-        getIndividualPokemonStart()
-    }
+    // onClickFunction() {
+    //     this.props.history.push("/")
+    // }
 
     render() {
         return (
@@ -52,4 +54,4 @@ const mapDispatchToProps = (dispatch) => ({
     getIndividualPokemonStart: (url) => dispatch(getIndividualPokemonStart(url))
 })
 
-export default connect(null, mapDispatchToProps)(Card);
+export default connect(null, mapDispatchToProps)(withRouter(Card));
