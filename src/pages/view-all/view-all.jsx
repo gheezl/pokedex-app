@@ -1,4 +1,4 @@
-import React, { Fragment, lazy, Component, useEffect } from 'react';
+import React, { Fragment, lazy, Component } from 'react';
 import { connect } from 'react-redux'
 import { createStructuredSelector } from "reselect"
 

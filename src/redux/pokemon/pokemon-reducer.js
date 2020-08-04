@@ -32,6 +32,24 @@ const pokemonReducer = (state = INITIAL_STATE, action) => {
                 displayCard: action.payload,
             }
 
+        case PokemonActionTypes.GET_INDIVIDUAL_POKEMON_START:
+            return {
+                ...state,
+            }
+
+        case PokemonActionTypes.GET_INDIVIDUAL_POKEMON_SUCCESS:
+            return {
+                ...state,
+                individualPokemon: action.payload
+            }
+
+        case PokemonActionTypes.GET_INDIVIDUAL_POKEMON_FAILURE:
+            return {
+                ...state,
+                error: action.payload
+            }
+
+
         default:
             return state
     }

@@ -1,4 +1,8 @@
 import React, { Fragment, Component } from 'react';
+import { connect } from 'react-redux'
+import { createStructuredSelector } from "reselect"
+
+import { getIndividualPokemonStart } from "../../redux/pokemon/pokemon-actions.js"
 
 import "./card.css"
 
@@ -7,11 +11,9 @@ class Card extends Component {
     constructor() {
         super();
         this.state = {
-            pokemonImg: 1
+            pokemonImg: 1,
         }
     }
-
-
 
     componentDidMount() {
         fetch(this.props.pokemon.url)
@@ -20,15 +22,20 @@ class Card extends Component {
     }
 
     componentWillUnmount() {
+        this.props.getIndividualPokemonStart(this.props.pokemon.url)
         this.setState = (state, callback) => {
             return;
         }
     }
 
+    onClickFunction() {
+        getIndividualPokemonStart()
+    }
+
     render() {
         return (
             <Fragment>
-                <div className="card-border">
+                <div onClick={this.onClickFunction} className="card-border">
                     <div className="image">
                         <img alt="" src={this.state.pokemonImg} />
                     </div>
@@ -41,4 +48,8 @@ class Card extends Component {
     }
 }
 
-export default Card;
+const mapDispatchToProps = (dispatch) => ({
+    getIndividualPokemonStart: (url) => dispatch(getIndividualPokemonStart(url))
+})
+
+export default connect(null, mapDispatchToProps)(Card);
