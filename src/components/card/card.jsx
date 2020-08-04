@@ -51,7 +51,7 @@ class Card extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    getIndividualPokemonStart: (url) => dispatch(getIndividualPokemonStart(url))
+    getIndividualPokemonStart: (url) => dispatch(getIndividualPokemonStart(url)),
 })
 
 export default connect(null, mapDispatchToProps)(withRouter(Card));

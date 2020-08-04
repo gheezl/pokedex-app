@@ -8,7 +8,7 @@ import { getPokemonSuccess, getPokemonFailure, displayCard, getIndividualPokemon
 
 export function* getPokemon() {
     try {
-        const fetchPokemon = yield fetch("https://pokeapi.co/api/v2/pokemon?limit=1")
+        const fetchPokemon = yield fetch("https://pokeapi.co/api/v2/pokemon?limit=54")
             .then(response => response.json())
         yield put(
             getPokemonSuccess(fetchPokemon)

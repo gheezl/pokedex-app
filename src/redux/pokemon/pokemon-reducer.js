@@ -9,6 +9,9 @@ const INITIAL_STATE = {
 
 const pokemonReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
+
+        // get all pokemon
+
         case PokemonActionTypes.GET_ALL_POKEMON_START:
             return {
                 ...state
@@ -26,11 +29,15 @@ const pokemonReducer = (state = INITIAL_STATE, action) => {
                 error: action.payload
             }
 
+        // display card
+
         case PokemonActionTypes.DISPLAY_CARD:
             return {
                 ...state,
                 displayCard: action.payload,
             }
+
+        // get individual pokemon
 
         case PokemonActionTypes.GET_INDIVIDUAL_POKEMON_START:
             return {
@@ -49,6 +56,8 @@ const pokemonReducer = (state = INITIAL_STATE, action) => {
                 error: action.payload
             }
 
+
+        // default state
 
         default:
             return state
