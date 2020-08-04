@@ -3,6 +3,8 @@ import PokemonActionTypes from "./pokemon-types.js"
 const INITIAL_STATE = {
     displayCard: false,
     allPokemon: ["place", "holder"],
+    next: null,
+    previous: null,
     individualPokemon: null,
     error: null
 }

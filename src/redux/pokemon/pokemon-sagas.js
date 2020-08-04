@@ -2,16 +2,24 @@ import { takeLatest, put, all, call } from "redux-saga/effects"
 
 import PokemonActionTypes from "./pokemon-types.js"
 
-import { getPokemonSuccess, getPokemonFailure, displayCard, getIndividualPokemonStart, getIndividualPokemonSuccess, getIndividualPokemonFailure } from "./pokemon-actions.js"
+import {
+    getPokemonSuccess,
+    getPokemonFailure,
+    setNext,
+    setPrevious,
+    displayCard,
+    getIndividualPokemonSuccess,
+    getIndividualPokemonFailure
+} from "./pokemon-actions.js"
 
 // sagas
 
-export function* getPokemon() {
+export function* getPokemon({ payload: url }) {
     try {
-        const fetchPokemon = yield fetch("https://pokeapi.co/api/v2/pokemon?limit=54")
+        const fetchPokemon = yield fetch(url)
             .then(response => response.json())
         yield put(
-            getPokemonSuccess(fetchPokemon)
+            getPokemonSuccess(fetchPokemon),
         )
         yield put(
             displayCard(true)

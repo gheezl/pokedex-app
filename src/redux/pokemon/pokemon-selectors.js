@@ -16,3 +16,13 @@ export const selectIndividualPokemon = createSelector(
     [selectPokemonState],
     (pokemon) => pokemon.individualPokemon
 )
+
+export const selectNext = createSelector(
+    [selectPokemonState],
+    (pokemon) => pokemon.allPokemon.next
+)
+
+export const selectPrevious = createSelector(
+    [selectPokemonState],
+    (pokemon) => pokemon.allPokemon.previous
+)

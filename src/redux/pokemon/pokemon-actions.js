@@ -2,8 +2,9 @@ import PokemonActionTypes from "./pokemon-types.js"
 
 // get all pokemon actions
 
-export const getPokemonStart = () => ({
-    type: PokemonActionTypes.GET_ALL_POKEMON_START
+export const getPokemonStart = (url) => ({
+    type: PokemonActionTypes.GET_ALL_POKEMON_START,
+    payload: url
 })
 
 export const getPokemonSuccess = (pokemon) => ({

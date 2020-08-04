@@ -23,3 +23,11 @@
     justify-content: center;
     margin-top: 50px;
 }
+
+.stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    margin-left: 10vw;
+    margin-top: 50px;
+}

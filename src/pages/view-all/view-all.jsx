@@ -5,7 +5,7 @@ import { createStructuredSelector } from "reselect"
 import "./view-all.css"
 
 import { getPokemonStart } from "../../redux/pokemon/pokemon-actions.js"
-import { selectAllPokemon, selectDisplayCard } from "../../redux/pokemon/pokemon-selectors.js"
+import { selectAllPokemon, selectDisplayCard, selectNext, selectPrevious } from "../../redux/pokemon/pokemon-selectors.js"
 
 import Loading from '../../components/loading/loading.jsx';
 
@@ -14,16 +14,32 @@ const Card = lazy(() => import("../../components/card/card.jsx"))
 
 class ViewAll extends Component {
     componentDidMount() {
-        this.props.getPokemonStart()
+        this.props.getPokemonStart("https://pokeapi.co/api/v2/pokemon?limit=28")
     }
 
     render() {
+        const NextPage = () => {
+            this.props.getPokemonStart(this.props.next)
+        }
+
+        const PreviousPage = () => {
+            this.props.getPokemonStart(this.props.previous)
+        }
+
+        const getSprite = (url) => {
+            fetch(url)
+                .then(response => response.json())
+                .then(pokemon => console.log(pokemon))
+        }
+
         return (
             <Fragment>
                 <div className="page-header">
+                    <span onClick={PreviousPage} className="previous" >⥊ previous</span>
                     <h2>
-                        ⥊ all pokemon ⥋
+                        all pokemon
                     </h2>
+                    <span onClick={NextPage} className="next">next ⥋</span>
                 </div>
                 <div className="card">
                     {
@@ -31,7 +47,7 @@ class ViewAll extends Component {
                             ?
                             this.props.allPokemon.map(pokemon =>
                                 (
-                                    <Card pokemon={pokemon} />
+                                    <Card name={pokemon.name} url={pokemon.url} sprite={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"} />
                                 )
                             )
                             : (
@@ -46,11 +62,13 @@ class ViewAll extends Component {
 
 const mapStateToProps = createStructuredSelector({
     allPokemon: selectAllPokemon,
-    displayCard: selectDisplayCard
+    displayCard: selectDisplayCard,
+    next: selectNext,
+    previous: selectPrevious
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    getPokemonStart: () => dispatch(getPokemonStart())
+    getPokemonStart: (url) => dispatch(getPokemonStart(url))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ViewAll);
