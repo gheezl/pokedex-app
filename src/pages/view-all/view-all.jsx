@@ -1,9 +1,11 @@
-import React, { Fragment, Suspense, lazy, Component, useCallback } from 'react';
+import React, { Fragment, Suspense, lazy, Component } from 'react';
 import { connect } from 'react-redux'
 
 import "./view-all.css"
 
 import { getPokemonStart } from "../../redux/pokemon/pokemon-actions.js"
+
+import Loading from '../../components/loading/loading.jsx';
 
 const Card = lazy(() => import("../../components/card/card.jsx"))
 
@@ -12,23 +14,23 @@ class ViewAll extends Component {
     constructor() {
         super();
         this.state = {
-            allPokemon: [1, 2, 3],
+            displayCard: false,
+            allPokemon: [1, 2],
             count: 1
         }
     }
-
-    // dispatch = useDispatch()
-    // getPokemon = useCallback(
-    //     () => this.dispatch({ getPokemonStart }),
-    //     [this.dispatch]
-    // )
-
 
     componentDidMount() {
         getPokemonStart()
         fetch("https://pokeapi.co/api/v2/pokemon?limit=964")
             .then(response => response.json())
-            .then(pokemon => this.setState({ allPokemon: pokemon.results, count: pokemon.count }))
+            .then(pokemon => this.setState({ allPokemon: pokemon.results, count: pokemon.count, displayCard: true }))
+    }
+
+    componentWillUnmount() {
+        this.setState = (state, callback) => {
+            return;
+        };
     }
 
 
@@ -42,11 +44,16 @@ class ViewAll extends Component {
                 </div>
                 <div className="card">
                     {
-                        this.state.allPokemon.map(pokemon =>
-                            (
-                                <Card pokemon={pokemon} />
+                        this.state.displayCard
+                            ?
+                            this.state.allPokemon.map(pokemon =>
+                                (
+                                    <Card pokemon={pokemon} />
+                                )
                             )
-                        )
+                            : (
+                                <Loading />
+                            )
                     }
                 </div>
             </Fragment>

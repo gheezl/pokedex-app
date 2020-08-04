@@ -12,13 +12,13 @@ const Header = () => {
                     <h1>Pokedex</h1>
                 </Link>
                 <div className="links">
-                    <Link to="/search" className="Search">
+                    <Link to="/search" className="link">
                         <span>Search</span>
                     </Link>
-                    <Link to="/view-all" className="View-All">
+                    <Link to="/view-all" className="link">
                         <span>View All</span>
                     </Link>
-                    <Link to="/profile" className="Profile">
+                    <Link to="/profile" className="link">
                         <span>Profile</span>
                     </Link>
                 </div>

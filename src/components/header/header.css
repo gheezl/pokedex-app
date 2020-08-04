@@ -19,32 +19,22 @@
     margin-left: 75vw;
 }
 
-.Search {
-    margin: 20px;
+.link {
+    margin: 25px;
     transition: opacity 1s;
 }
 
-.Search:hover {
+.link:hover {
     cursor: pointer;
     opacity: 0.50;
 }
 
-.View-All {
-    margin: 20px;
-    transition: opacity 1s;
-}
+@media only screen and (max-width: 800px) {
+    .links {
+        margin-left: 2.5vw;
+    }
 
-.View-All:hover {
-    cursor: pointer;
-    opacity: 0.50;
-}
-
-.Profile {
-    margin: 20px;
-    transition: opacity 1s;
-}
-
-.Profile:hover {
-    cursor: pointer;
-    opacity: 0.50;
+    .link {
+        margin: 2.5vw;
+    }
 }
