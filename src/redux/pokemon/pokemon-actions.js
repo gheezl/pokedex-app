@@ -13,3 +13,9 @@ export const getPokemonFailure = (error) => ({
     type: PokemonActionTypes.GET_ALL_POKEMON_FAILURE,
     payload: error
 })
+
+
+export const displayCard = (value) => ({
+    type: PokemonActionTypes.DISPLAY_CARD,
+    payload: value
+})

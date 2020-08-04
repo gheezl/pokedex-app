@@ -7,7 +7,7 @@ const Loading = () => {
     return (
         <Fragment>
             <div className="loader-border">
-                <span class="loader"></span>
+                <span className="loader"></span>
             </div>
         </Fragment>
     )

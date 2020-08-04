@@ -2,19 +2,22 @@ import { takeLatest, put, all, call } from "redux-saga/effects"
 
 import PokemonActionTypes from "./pokemon-types.js"
 
-import { getPokemonSuccess, getPokemonFailure } from "./pokemon-actions.js"
+import { getPokemonSuccess, getPokemonFailure, displayCard } from "./pokemon-actions.js"
 
 
 export function* getPokemon() {
     try {
-        const fetchPokemon = yield call("https://pokeapi.co/api/v2/pokemon?limit=964")
-        const pokemon = fetchPokemon.json()
+        const fetchPokemon = yield fetch("https://pokeapi.co/api/v2/pokemon?limit=964")
+            .then(response => response.json())
         yield put(
-            getPokemonSuccess(pokemon)
+            getPokemonSuccess(fetchPokemon)
+        )
+        yield put(
+            displayCard(true)
         )
     }
     catch (error) {
-        getPokemonFailure(error)
+        getPokemonFailure(error.message)
     }
 }
 

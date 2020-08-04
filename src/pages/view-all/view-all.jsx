@@ -1,9 +1,11 @@
-import React, { Fragment, Suspense, lazy, Component } from 'react';
+import React, { Fragment, lazy, Component, useEffect } from 'react';
 import { connect } from 'react-redux'
+import { createStructuredSelector } from "reselect"
 
 import "./view-all.css"
 
 import { getPokemonStart } from "../../redux/pokemon/pokemon-actions.js"
+import { selectAllPokemon, SelectDisplayCard } from "../../redux/pokemon/pokemon-selectors.js"
 
 import Loading from '../../components/loading/loading.jsx';
 
@@ -11,28 +13,9 @@ const Card = lazy(() => import("../../components/card/card.jsx"))
 
 
 class ViewAll extends Component {
-    constructor() {
-        super();
-        this.state = {
-            displayCard: false,
-            allPokemon: [1, 2],
-            count: 1
-        }
-    }
-
     componentDidMount() {
-        getPokemonStart()
-        fetch("https://pokeapi.co/api/v2/pokemon?limit=964")
-            .then(response => response.json())
-            .then(pokemon => this.setState({ allPokemon: pokemon.results, count: pokemon.count, displayCard: true }))
+        this.props.getPokemonStart()
     }
-
-    componentWillUnmount() {
-        this.setState = (state, callback) => {
-            return;
-        };
-    }
-
 
     render() {
         return (
@@ -44,9 +27,9 @@ class ViewAll extends Component {
                 </div>
                 <div className="card">
                     {
-                        this.state.displayCard
+                        this.props.displayCard
                             ?
-                            this.state.allPokemon.map(pokemon =>
+                            this.props.allPokemon.map(pokemon =>
                                 (
                                     <Card pokemon={pokemon} />
                                 )
@@ -61,8 +44,13 @@ class ViewAll extends Component {
     }
 }
 
+const mapStateToProps = createStructuredSelector({
+    allPokemon: selectAllPokemon,
+    displayCard: SelectDisplayCard
+})
+
 const mapDispatchToProps = (dispatch) => ({
     getPokemonStart: () => dispatch(getPokemonStart())
 })
 
-export default connect(null, mapDispatchToProps)(ViewAll);
+export default connect(mapStateToProps, mapDispatchToProps)(ViewAll);
