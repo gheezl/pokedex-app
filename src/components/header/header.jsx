@@ -9,7 +9,7 @@ const Header = () => {
         <Fragment>
             <div className="header-border">
                 <Link to="/" className="title">
-                    <h1>Pokedex</h1>
+                    <h1>Pokédex</h1>
                 </Link>
                 <div className="links">
                     <Link to="/search" className="link">
