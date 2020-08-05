@@ -13,6 +13,7 @@ import pokemonDisplay from '../pokemon-display/pokemon-display';
 const Card = lazy(() => import("../../components/card/card.jsx"))
 
 
+
 class ViewAll extends Component {
     componentDidMount() {
         this.props.getPokemonStart("https://pokeapi.co/api/v2/pokemon?limit=28")
@@ -27,11 +28,12 @@ class ViewAll extends Component {
             this.props.getPokemonStart(this.props.previous)
         }
 
-        const getSprite = async (url) => {
-            const response = await fetch(url);
-            const pokemon = await response.json();
-            return pokemon.sprites.front_default;
-        }
+
+        // const getSprite = async (url) => {
+        //     const response = await fetch(url);
+        //     const pokemon = await response.json();
+        //     return console.log(pokemon.sprites.front_default);
+        // }
 
         return (
             <Fragment>
@@ -47,8 +49,8 @@ class ViewAll extends Component {
                         this.props.displayCard
                             ?
                             this.props.allPokemon.map(pokemon => {
-                                const spriteUrl = getSprite(pokemon.url)
-                                return (<Card name={pokemon.name} url={pokemon.url} sprite={spriteUrl} />)
+                                {/* getSprite(pokemon.url) */ }
+                                return (<Card name={pokemon.name} url={pokemon.url} sprite={"hi"} />)
                             }
                             )
                             : (
