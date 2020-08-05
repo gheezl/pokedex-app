@@ -1,22 +1,23 @@
 import React, { Fragment, lazy, Suspense } from 'react';
 
-import "./moves-border.css"
+import "./stats-border.css"
 
 import Loading from "../../loading/loading.jsx"
 
-const Moves = lazy(() => import("../moves.jsx"))
+const Stats = lazy(() => import("../stats.jsx"))
 
-const MovesBorder = ({ individualPokemon }) => {
+
+const StatsBorder = ({ individualPokemon }) => {
     return (
         <Fragment>
             <div className="map-header">
-                <h3>moves</h3>
+                <h3>stats</h3>
             </div>
-            <div className="moves-border">
+            <div className="stats-border">
                 {
-                    individualPokemon.moves.map(move => (
+                    individualPokemon.stats.map(stat => (
                         <Suspense fallback={<Loading />}>
-                            <Moves move={move} />
+                            <Stats stat={stat} />
                         </Suspense>
                     ))
                 }
@@ -25,4 +26,4 @@ const MovesBorder = ({ individualPokemon }) => {
     )
 }
 
-export default MovesBorder;
+export default StatsBorder;

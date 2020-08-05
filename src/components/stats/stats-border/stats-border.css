@@ -1,20 +1,14 @@
-.map-header {
-    display: flex;
-    justify-content: center;
-}
-
-.moves-border {
+.stats-border {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     margin-left: 10vw;
     margin-top: 50px;
     margin-bottom: 50px;
 }
 
 @media only screen and (max-width: 800px) {
-    .moves-border {
+    .stats-border {
         display: flex;
-        justify-content: center;
         flex-direction: column;
         margin-left: 0;
     }

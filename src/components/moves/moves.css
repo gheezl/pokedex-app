@@ -1,0 +1,6 @@
+@media only screen and (max-width: 800px) {
+    .move-border {
+        display: flex;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,15 @@
+.game-appearances-border {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    margin-left: 12vw;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 800px) {
+    .game-appearances-border {
+        display: flex;
+        flex-direction: column;
+        margin-left: 0;
+    }
+}

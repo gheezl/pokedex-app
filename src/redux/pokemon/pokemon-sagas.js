@@ -5,8 +5,6 @@ import PokemonActionTypes from "./pokemon-types.js"
 import {
     getPokemonSuccess,
     getPokemonFailure,
-    setNext,
-    setPrevious,
     displayCard,
     getIndividualPokemonSuccess,
     getIndividualPokemonFailure
