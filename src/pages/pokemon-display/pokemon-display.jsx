@@ -13,6 +13,7 @@ import "./pokemon-display.css"
 const Stats = lazy(() => import("../../components/stats/stats.jsx"))
 const Abilities = lazy(() => import("../../components/abilities/abilities.jsx"))
 const GameAppearances = lazy(() => import("../../components/game-appearances/game-appearances.jsx"))
+const MovesBorder = lazy(() => import("../../components/moves/moves-border/moves-border.jsx"))
 
 
 const PokemonDisplay = ({ individualPokemon }) => {
@@ -71,6 +72,7 @@ const PokemonDisplay = ({ individualPokemon }) => {
                         ))
                     }
                 </div>
+                <MovesBorder individualPokemon={individualPokemon} />
             </Fragment>
         )
         : (
