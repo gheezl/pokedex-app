@@ -22,7 +22,15 @@ const Moves = ({ move }) => {
     return (
         <Fragment>
             <div onClick={onClickFunction} className="move-border">
-                <span>{move.move.name}</span>
+                <span>{move.move.name} {
+                    toggle
+                        ? (
+                            <span>❱</span>
+                        )
+                        : (
+                            null
+                        )
+                }</span>
                 {
                     toggle
                         ? (
@@ -31,7 +39,7 @@ const Moves = ({ move }) => {
                         :
                         (
                             <div className="data">
-                                <span>{moveData}</span>
+                                <span className="data-span">{moveData}</span>
                             </div>
                         )
                 }
