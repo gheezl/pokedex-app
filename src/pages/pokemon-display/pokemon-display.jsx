@@ -11,6 +11,8 @@ import Loading from "../../components/loading/loading.jsx"
 import "./pokemon-display.css"
 
 const Stats = lazy(() => import("../../components/stats/stats.jsx"))
+const Abilities = lazy(() => import("../../components/abilities/abilities.jsx"))
+const GameAppearances = lazy(() => import("../../components/game-appearances/game-appearances.jsx"))
 
 
 const PokemonDisplay = ({ individualPokemon }) => {
@@ -33,7 +35,7 @@ const PokemonDisplay = ({ individualPokemon }) => {
                 <div className="sprite">
                     <img alt="sprite" src={individualPokemon.sprites.front_default} height="200px" width="200px" />
                 </div>
-                <div className="stats-header">
+                <div className="map-header">
                     <h3>stats</h3>
                 </div>
                 <div className="stats">
@@ -45,7 +47,30 @@ const PokemonDisplay = ({ individualPokemon }) => {
                         ))
                     }
                 </div>
-
+                <div className="map-header">
+                    <h3>abilities</h3>
+                </div>
+                <div className="abilites">
+                    {
+                        individualPokemon.abilities.map(ability => (
+                            <Suspense fallback={<Loading />} >
+                                <Abilities ability={ability} />
+                            </Suspense>
+                        ))
+                    }
+                </div>
+                <div className="map-header">
+                    <h3>game appearances</h3>
+                </div>
+                <div className="game-appearances">
+                    {
+                        individualPokemon.game_indices.map(appearance => (
+                            <Suspense fallback={<Loading />} >
+                                <GameAppearances appearance={appearance} />
+                            </Suspense>
+                        ))
+                    }
+                </div>
             </Fragment>
         )
         : (
@@ -56,7 +81,8 @@ const PokemonDisplay = ({ individualPokemon }) => {
                 </span>
 
             </div>
-        ));
+        )
+    );
 }
 
 const mapStateToProps = createStructuredSelector({

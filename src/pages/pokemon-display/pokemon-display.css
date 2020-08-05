@@ -13,7 +13,7 @@
     justify-content: center;
 }
 
-.stats-header {
+.map-header {
     display: flex;
     justify-content: center;
 }
@@ -27,7 +27,42 @@
 .stats {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     margin-left: 10vw;
     margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.abilites {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.game-appearances {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    margin-left: 12vw;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 800px) {
+    .stats {
+        display: flex;
+        flex-direction: column;
+        margin-left: 0;
+    }
+
+    .abilites {
+        display: flex;
+        flex-direction: column;
+        margin-left: 0;
+    }
+
+    .game-appearances {
+        display: flex;
+        flex-direction: column;
+        margin-left: 0;
+    }
 }

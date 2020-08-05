@@ -4,7 +4,6 @@ import "./stats.css"
 
 
 const Stats = ({ stat }) => {
-    console.log(stat)
     return (
         <Fragment>
             <div className="stat-border">

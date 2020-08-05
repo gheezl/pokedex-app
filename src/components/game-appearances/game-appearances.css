@@ -1,9 +1,10 @@
-/* .stat-border {
-    justify-content: center;
-} */
+.appearances {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
 
 @media only screen and (max-width: 800px) {
-    .stat-border {
+    .appearances-border {
         display: flex;
         justify-content: center;
     }
