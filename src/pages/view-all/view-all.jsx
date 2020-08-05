@@ -8,6 +8,7 @@ import { getPokemonStart } from "../../redux/pokemon/pokemon-actions.js"
 import { selectAllPokemon, selectDisplayCard, selectNext, selectPrevious } from "../../redux/pokemon/pokemon-selectors.js"
 
 import Loading from '../../components/loading/loading.jsx';
+import pokemonDisplay from '../pokemon-display/pokemon-display';
 
 const Card = lazy(() => import("../../components/card/card.jsx"))
 
@@ -26,10 +27,10 @@ class ViewAll extends Component {
             this.props.getPokemonStart(this.props.previous)
         }
 
-        const getSprite = (url) => {
-            fetch(url)
-                .then(response => response.json())
-                .then(pokemon => console.log(pokemon))
+        const getSprite = async (url) => {
+            const response = await fetch(url);
+            const pokemon = await response.json();
+            return pokemon.sprites.front_default;
         }
 
         return (
@@ -45,10 +46,10 @@ class ViewAll extends Component {
                     {
                         this.props.displayCard
                             ?
-                            this.props.allPokemon.map(pokemon =>
-                                (
-                                    <Card name={pokemon.name} url={pokemon.url} sprite={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"} />
-                                )
+                            this.props.allPokemon.map(pokemon => {
+                                const spriteUrl = getSprite(pokemon.url)
+                                return (<Card name={pokemon.name} url={pokemon.url} sprite={spriteUrl} />)
+                            }
                             )
                             : (
                                 <Loading />

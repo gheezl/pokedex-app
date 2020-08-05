@@ -9,6 +9,7 @@ import "./card.css"
 
 
 const Card = ({ getIndividualPokemonStart, name, url, sprite, history }) => {
+    console.log(sprite)
     const onClickFunction = () => {
         getIndividualPokemonStart(url)
         history.push("/display")
