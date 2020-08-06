@@ -12,14 +12,16 @@ class Card extends Component {
         super();
         this.state = {
             url: 1,
-            spriteUrl: 1
+            spriteUrl: 1,
+            toggle: true
         }
     }
 
     static getDerivedStateFromProps(props, state) {
         if (props.url !== state.url) {
             return {
-                url: props.url
+                url: props.url,
+                toggle: false
             }
 
         }
@@ -30,7 +32,7 @@ class Card extends Component {
         this.setState({ url: url })
         fetch(url)
             .then(response => response.json())
-            .then(pokemon => this.setState({ spriteUrl: pokemon.sprites.front_default })
+            .then(pokemon => this.setState({ spriteUrl: pokemon.sprites.front_default, toggle: true })
             )
     }
 
@@ -38,15 +40,15 @@ class Card extends Component {
         if (prevState.url !== this.state.url) {
             fetch(this.state.url)
                 .then(response => response.json())
-                .then(pokemon => this.setState({ spriteUrl: pokemon.sprites.front_default })
+                .then(pokemon => this.setState({ spriteUrl: pokemon.sprites.front_default, toggle: true })
                 )
         }
     }
 
 
     render() {
-        const { getIndividualPokemonStart, name, url, sprite, history } = this.props
-        const { spriteUrl } = this.state
+        const { getIndividualPokemonStart, name, url, history } = this.props
+        const { spriteUrl, toggle } = this.state
 
 
         const onClickFunction = () => {
@@ -57,13 +59,23 @@ class Card extends Component {
         return (
             <Fragment>
                 <div onClick={onClickFunction} className="card-border">
-                    <div className="image">
-                        <img alt="" src={spriteUrl} />
-                    </div>
-                    <div className="name">
-                        <span>{name}</span>
-                    </div>
-                </div>
+                    {
+                        toggle
+                            ? (
+                                <Fragment>
+                                    <div className="image">
+                                        <img alt="" src={spriteUrl} />
+                                    </div>
+                                    <div className="name">
+                                        <span>{name}</span>
+                                    </div>
+                                </Fragment>
+                            )
+                            : (
+                                <span>loading...</span>
+                            )
+                    }</div>
+
             </Fragment>
         )
     }
