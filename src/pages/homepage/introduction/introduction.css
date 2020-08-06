@@ -1,0 +1,31 @@
+.introduction {
+    margin-top: 50px;
+    background-color: whitesmoke;
+}
+
+.introduction-message {
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    transition: background-color 1s;
+}
+
+.introduction-message:hover {
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+
+.introduction-content {
+    display: flex;
+    justify-content: center;
+    margin-left: 25vw;
+    margin-right: 25vw;
+    background-color: whitesmoke;
+
+}
+
+.introduction-paragraph {
+    margin-right: 20px;
+    background-color: whitesmoke;
+    width: 25vw;
+}

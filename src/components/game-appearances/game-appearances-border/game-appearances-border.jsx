@@ -6,6 +6,7 @@ import Loading from "../../loading/loading.jsx"
 
 const GameAppearances = lazy(() => import("../game-appearances.jsx"))
 
+
 const GameAppearancesBorder = ({ individualPokemon }) => {
     return (
         <Fragment>

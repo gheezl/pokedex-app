@@ -7,11 +7,13 @@ import { createStructuredSelector } from "reselect"
 import { selectIndividualPokemon } from "../../redux/pokemon/pokemon-selectors.js"
 
 import "./pokemon-display.css"
+import Loading from '../../components/loading/loading.jsx';
 
 const MovesBorder = lazy(() => import("../../components/moves/moves-border/moves-border.jsx"))
 const StatsBorder = lazy(() => import("../../components/stats/stats-border/stats-border.jsx"))
 const AbilitiesBorder = lazy(() => import("../../components/abilities/abilities-border/abilities-border.jsx"))
 const GameAppearancesBorder = lazy(() => import("../../components/game-appearances/game-appearances-border/game-appearances-border.jsx"))
+const Warning = lazy(() => import("./warning/warning.jsx"))
 
 
 const PokemonDisplay = ({ individualPokemon }) => {
@@ -34,20 +36,16 @@ const PokemonDisplay = ({ individualPokemon }) => {
                 <div className="sprite">
                     <img alt="sprite" src={individualPokemon.sprites.front_default} height="200px" width="200px" />
                 </div>
-                <StatsBorder individualPokemon={individualPokemon} />
-                <AbilitiesBorder individualPokemon={individualPokemon} />
-                <GameAppearancesBorder individualPokemon={individualPokemon} />
-                <MovesBorder individualPokemon={individualPokemon} />
+                <Suspense fallback={<Loading />}>
+                    <StatsBorder individualPokemon={individualPokemon} />
+                    <AbilitiesBorder individualPokemon={individualPokemon} />
+                    <GameAppearancesBorder individualPokemon={individualPokemon} />
+                    <MovesBorder individualPokemon={individualPokemon} />
+                </Suspense>
             </Fragment>
         )
         : (
-            <div className="warning">
-                <span>I am sorry, but there is no pokemon here.<br />
-                You can search for pokemon <Link to="/search"> Here </Link><br />
-                Or you can pick one <Link to="/view-all"> Here </Link>
-                </span>
-
-            </div>
+            <Warning />
         )
     );
 }

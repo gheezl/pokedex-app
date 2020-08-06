@@ -18,8 +18,8 @@ const StatsBorder = ({ individualPokemon }) => {
                     individualPokemon.stats.map(stat => (
                         <Suspense fallback={<Loading />}>
                             <Stats stat={stat} />
-                        </Suspense>
-                    ))
+                        </Suspense>)
+                    )
                 }
             </div>
         </Fragment>

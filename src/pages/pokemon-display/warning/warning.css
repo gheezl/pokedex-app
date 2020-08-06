@@ -1,0 +1,16 @@
+.warning {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.warning-image {
+    display: flex;
+    justify-content: center;
+}
+
+.warning-message {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}

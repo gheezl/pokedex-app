@@ -12,7 +12,6 @@ const Moves = ({ move }) => {
             const response = await fetch(move.move.url)
             const data = await response.json()
             setMoveData(data.effect_entries[0].short_effect)
-            console.log(data)
         } catch (error) {
             console.log(error)
         }
