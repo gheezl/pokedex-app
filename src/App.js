@@ -8,7 +8,6 @@ import Loading from "./components/loading/loading.jsx"
 
 const HomePage = lazy(() => import("./pages/homepage/homepage.jsx"))
 const ViewAll = lazy(() => import("./pages/view-all/view-all.jsx"))
-const Search = lazy(() => import("./pages/search/search.jsx"))
 const Profile = lazy(() => import("./pages/profile/profile.jsx"))
 const PokemonDisplay = lazy(() => import("./pages/pokemon-display/pokemon-display.jsx"))
 
@@ -23,7 +22,6 @@ function App() {
         <Suspense fallback={<Loading />}>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/view-all" component={ViewAll} />
-          <Route exact path="/search" component={Search} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/display" component={PokemonDisplay} />
         </Suspense>

@@ -13,6 +13,13 @@
     justify-content: center;
 }
 
+.no-image {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
 .warning {
     display: grid;
     grid-template-rows: 1fr 1fr;

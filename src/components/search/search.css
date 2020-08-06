@@ -19,6 +19,6 @@
 
 .submit-button {
     border: none;
-    border-left: black 1px solid;
+    /* border-left: black 1px solid; */
     background-color: whitesmoke;
 }

@@ -3,6 +3,10 @@
     margin-bottom: 5px;
 }
 
+.appearances:hover {
+    cursor: pointer;
+}
+
 @media only screen and (max-width: 800px) {
     .appearances-border {
         display: flex;

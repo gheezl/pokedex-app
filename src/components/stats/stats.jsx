@@ -8,6 +8,15 @@ const Stats = ({ stat }) => {
         <Fragment>
             <div className="stat-border">
                 <div className="individual-stat">
+                    {
+                        stat.stat.name === "hp"
+                            ? (
+                                <span>hi</span>
+                            )
+                            : (
+                                <span>no</span>
+                            )
+                    }
                     <span>{stat.stat.name}:  {stat.base_stat}</span>
                 </div>
             </div>

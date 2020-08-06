@@ -1,3 +1,7 @@
+.move-border:hover {
+    cursor: pointer;
+}
+
 .data {
     border-left: black 1px solid;
     margin-bottom: 5px;

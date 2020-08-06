@@ -1,5 +1,4 @@
 import React, { Fragment, lazy, Suspense } from 'react';
-import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
 
 import { createStructuredSelector } from "reselect"
@@ -9,6 +8,7 @@ import { selectIndividualPokemon } from "../../redux/pokemon/pokemon-selectors.j
 import "./pokemon-display.css"
 import Loading from '../../components/loading/loading.jsx';
 
+const PokemonDisplayHeader = lazy(() => import("../../components/pokemon-display-header/pokemon-display-header.jsx"))
 const MovesBorder = lazy(() => import("../../components/moves/moves-border/moves-border.jsx"))
 const StatsBorder = lazy(() => import("../../components/stats/stats-border/stats-border.jsx"))
 const AbilitiesBorder = lazy(() => import("../../components/abilities/abilities-border/abilities-border.jsx"))
@@ -23,20 +23,8 @@ const PokemonDisplay = ({ individualPokemon }) => {
         ?
         (
             <Fragment>
-                <div className="num">
-                    <span>
-                        num. {individualPokemon.id}
-                    </span>
-                </div>
-                <div className="name">
-                    <span>
-                        {individualPokemon.name}
-                    </span>
-                </div>
-                <div className="sprite">
-                    <img alt="sprite" src={individualPokemon.sprites.front_default} height="200px" width="200px" />
-                </div>
                 <Suspense fallback={<Loading />}>
+                    <PokemonDisplayHeader individualPokemon={individualPokemon} />
                     <StatsBorder individualPokemon={individualPokemon} />
                     <AbilitiesBorder individualPokemon={individualPokemon} />
                     <GameAppearancesBorder individualPokemon={individualPokemon} />
