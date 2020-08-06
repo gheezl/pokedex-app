@@ -1,0 +1,16 @@
+.form {
+    display: flex;
+}
+
+.search-bar {
+    border: none;
+    border-left: black 1px solid;
+    background-color: whitesmoke;
+    width: 100px;
+}
+
+.submit-button {
+    border: none;
+    border-left: black 1px solid;
+    background-color: whitesmoke;
+}

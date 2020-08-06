@@ -23,7 +23,6 @@ class Card extends Component {
                 url: props.url,
                 toggle: false
             }
-
         }
     }
 

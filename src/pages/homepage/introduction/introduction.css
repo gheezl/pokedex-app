@@ -6,13 +6,9 @@
 .introduction-message {
     display: flex;
     justify-content: center;
+    background-color: whitesmoke;
     font-size: 25px;
     transition: background-color 1s;
-}
-
-.introduction-message:hover {
-    background-color: whitesmoke;
-    cursor: pointer;
 }
 
 .introduction-content {
