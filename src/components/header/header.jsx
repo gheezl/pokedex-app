@@ -21,23 +21,23 @@ const Header = () => {
                     <h1>Pokédex</h1>
                 </Link>
 
+
+                <div className="search-border">
+                    <span onClick={onCLickFunction} >Search</span>
+                    {
+                        toggle
+                            ? (
+                                <Suspense fallback="loading...">
+                                    <Search />
+                                </Suspense>
+                            )
+                            : (
+                                null
+                            )
+                    }
+                </div>
+
                 <div className="links">
-                    <div className="search-border">
-                        <span onClick={onCLickFunction} >Search</span>
-                        {
-                            toggle
-                                ? (
-                                    <Suspense fallback="loading...">
-                                        <Search />
-                                    </Suspense>
-                                )
-                                : (
-                                    null
-                                )
-                        }
-                    </div>
-
-
                     <Link to="/view-all" className="link">
                         <span>View All</span>
                     </Link>
@@ -45,8 +45,8 @@ const Header = () => {
                     <Link to="/profile" className="link">
                         <span>Profile</span>
                     </Link>
-
                 </div>
+
             </div>
         </Fragment>
     )

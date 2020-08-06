@@ -22,11 +22,12 @@ const Search = ({ getIndividualPokemonStart, history }) => {
     return (
         <Fragment>
             <div className="form">
+                <span className="arrow">❱</span>
                 <input
                     onChange={onChangeFunction}
                     className="search-bar"
                     type="text"
-                    placeholder="Search"
+                // placeholder="""
                 />
                 <button
                     onClick={onClickFunction}

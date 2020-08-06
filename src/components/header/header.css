@@ -1,10 +1,12 @@
 .header-border {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     padding-left: 10px;
     padding-right: 10px;
 }
 
 .title {
+    display: flex;
     margin: 20px;
     transition: opacity 1s;
 }
@@ -15,8 +17,10 @@
 
 .links {
     display: flex;
+    grid-column-start: 7;
+    grid-column-end: 7;
+    justify-content: left;
     align-items: center;
-    margin-left: 75vw;
 }
 
 .link {
@@ -30,7 +34,12 @@
 }
 
 .search-border {
-    margin: 25px;
+    display: flex;
+    justify-content: right;
+    grid-column-start: 6;
+    grid-column-end: 6;
+    align-items: center;
+    margin-right: 25px;
 }
 
 @media only screen and (max-width: 800px) {

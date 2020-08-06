@@ -1,12 +1,20 @@
 .form {
     display: flex;
+    margin-left: 5px;
+}
+
+.arrow {
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
 }
 
 .search-bar {
     border: none;
-    border-left: black 1px solid;
+    border-left: #000000 1px solid;
     background-color: whitesmoke;
     width: 100px;
+    padding: 5px;
 }
 
 .submit-button {

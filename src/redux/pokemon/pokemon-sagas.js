@@ -29,7 +29,6 @@ export function* getPokemon({ payload: url }) {
 }
 
 export function* getIndividualPokemon({ payload: url }) {
-    console.log(url)
     try {
         const fetchIndividualPokemon = yield fetch(url)
             .then(response => response.json())
