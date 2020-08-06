@@ -1,9 +1,6 @@
 .card-border {
     border: black 2px solid;
-    margin-right: 15px;
-    margin-left: 15px;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin: 15px;
     transition: opacity 1s;
 }
 
@@ -19,4 +16,13 @@
 .name {
     display: flex;
     justify-content: center;
+}
+
+.loading-border {
+    display: flex;
+    justify-content: center;
+    margin-top: 48px;
+    margin-bottom: 48px;
+    margin-right: 75px;
+    margin-left: 75px;
 }

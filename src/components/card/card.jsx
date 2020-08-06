@@ -68,13 +68,16 @@ class Card extends Component {
                                     <div className="name">
                                         <span>{name}</span>
                                     </div>
+
                                 </Fragment>
                             )
                             : (
-                                <span>loading...</span>
+                                <div className="loading-border">
+                                    <span>loading...</span>
+                                </div>
                             )
-                    }</div>
-
+                    }
+                </div>
             </Fragment>
         )
     }

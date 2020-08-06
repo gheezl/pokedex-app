@@ -27,7 +27,6 @@ const Search = ({ getIndividualPokemonStart, history }) => {
                     onChange={onChangeFunction}
                     className="search-bar"
                     type="text"
-                // placeholder="""
                 />
                 <button
                     onClick={onClickFunction}
