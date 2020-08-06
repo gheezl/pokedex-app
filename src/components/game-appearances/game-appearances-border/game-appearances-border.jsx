@@ -8,7 +8,6 @@ const GameAppearances = lazy(() => import("../game-appearances.jsx"))
 
 
 const GameAppearancesBorder = ({ individualPokemon }) => {
-    console.log(individualPokemon)
     return (
         <Fragment>
             <div className="map-header">

@@ -21,7 +21,6 @@ class Card extends Component {
         if (props.url !== state.url) {
             return {
                 url: props.url,
-                toggle: false
             }
         }
     }
@@ -31,7 +30,7 @@ class Card extends Component {
         this.setState({ url: url })
         fetch(url)
             .then(response => response.json())
-            .then(pokemon => this.setState({ spriteUrl: pokemon.sprites.front_default, toggle: true })
+            .then(pokemon => this.setState({ spriteUrl: pokemon.sprites.front_default })
             )
     }
 
@@ -39,7 +38,7 @@ class Card extends Component {
         if (prevState.url !== this.state.url) {
             fetch(this.state.url)
                 .then(response => response.json())
-                .then(pokemon => this.setState({ spriteUrl: pokemon.sprites.front_default, toggle: true })
+                .then(pokemon => this.setState({ spriteUrl: pokemon.sprites.front_default })
                 )
         }
     }
@@ -47,7 +46,7 @@ class Card extends Component {
 
     render() {
         const { getIndividualPokemonStart, name, url, history } = this.props
-        const { spriteUrl, toggle } = this.state
+        const { spriteUrl } = this.state
 
 
         const onClickFunction = () => {
@@ -58,25 +57,12 @@ class Card extends Component {
         return (
             <Fragment>
                 <div onClick={onClickFunction} className="card-border">
-                    {
-                        toggle
-                            ? (
-                                <Fragment>
-                                    <div className="image">
-                                        <img alt="" src={spriteUrl} />
-                                    </div>
-                                    <div className="name">
-                                        <span>{name}</span>
-                                    </div>
-
-                                </Fragment>
-                            )
-                            : (
-                                <div className="loading-border">
-                                    <span>loading...</span>
-                                </div>
-                            )
-                    }
+                    <div className="image">
+                        <img alt="" src={spriteUrl} />
+                    </div>
+                    <div className="name">
+                        <span>{name}</span>
+                    </div>
                 </div>
             </Fragment>
         )

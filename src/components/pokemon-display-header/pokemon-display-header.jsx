@@ -2,6 +2,8 @@ import React, { Fragment, lazy, Suspense } from 'react';
 
 import "./pokemon-display-header.css"
 
+const Type = lazy(() => import("./type/type.jsx"))
+
 const PokemonDisplayHeader = ({ individualPokemon }) => {
     return (
         <Fragment>
@@ -10,10 +12,13 @@ const PokemonDisplayHeader = ({ individualPokemon }) => {
                     num. {individualPokemon.id}
                 </span>
             </div>
+            <Suspense fallback="Loading...">
+                <Type type={individualPokemon.types} />
+            </Suspense>
             <div className="name">
-                <span>
+                <h2>
                     {individualPokemon.name}
-                </span>
+                </h2>
             </div>
             {
                 individualPokemon.sprites.front_default
@@ -26,6 +31,7 @@ const PokemonDisplayHeader = ({ individualPokemon }) => {
                         <span className="no-image">No Image available</span>
                     )
             }
+
         </Fragment>
     )
 }
