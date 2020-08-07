@@ -15,7 +15,7 @@ const HomePage = () => {
         <Fragment>
             <div>
                 <div className="homepage-header">
-                    <img alt="pokeball" className="pokemon-image" src="https://gifimage.net/wp-content/uploads/2018/04/pokeball-opening-gif-8.gif" />
+                    <img alt="pokeball" className="pokemon-image" src="pokeball-opening-gif-8.gif" />
                     <span className="welcome">Welcome to the Pokédex</span>
                 </div>
                 <Suspense fallback={<Loading />}>

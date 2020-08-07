@@ -66,8 +66,7 @@ class Card extends Component {
                                 )
                                 : (
                                     <div className="card-sprite">
-                                        <img height="75px" width="75px" alt="" src="https://cdn2.scratch.mit.edu/get_image/gallery/4016440_170x100.png" />
-                                        {/* <span>Loading...</span> */}
+                                        <img height="75px" width="75px" alt="" src="4016440_170x100.gif" />
                                     </div>
 
                                 )
