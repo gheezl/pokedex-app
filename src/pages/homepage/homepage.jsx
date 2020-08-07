@@ -1,9 +1,10 @@
-import React, { Fragment, useState, lazy, Suspense } from 'react';
+import React, { Fragment, lazy, Suspense } from 'react';
 
 import "./homepage.css"
 import Loading from '../../components/loading/loading';
 
 const Introduction = lazy(() => import("./introduction/introduction.jsx"))
+const Links = lazy(() => import("./links/links.jsx"))
 
 const HomePage = () => {
     return (
@@ -16,6 +17,7 @@ const HomePage = () => {
                 </div>
                 <Suspense fallback={<Loading />}>
                     <Introduction />
+                    <Links />
                 </Suspense>
             </div>
         </Fragment>

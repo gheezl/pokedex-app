@@ -1,0 +1,14 @@
+.links-border {
+    display: flex;
+    justify-content: center;
+}
+
+/* .to-profile {
+    margin: 25px;
+    font-size: 20px;
+} */
+
+.to-location {
+    margin: 50px;
+    font-size: 20px;
+}

@@ -23,7 +23,7 @@ const Header = () => {
 
 
                 <div className="search-border">
-                    <span onClick={onCLickFunction} >Search</span>
+                    <span className="search-icon" onClick={onCLickFunction} >Search</span>
                     {
                         toggle
                             ? (

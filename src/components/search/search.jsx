@@ -6,6 +6,8 @@ import "./search.css"
 
 import { getIndividualPokemonStart } from "../../redux/pokemon/pokemon-actions.js"
 
+
+
 const Search = ({ getIndividualPokemonStart, history }) => {
     let [inputData, setInputData] = useState("1")
 

@@ -12,7 +12,7 @@
 }
 
 .introduction-content {
-    display: flex;
+    display: grid;
     justify-content: center;
     margin-left: 25vw;
     margin-right: 25vw;
@@ -24,4 +24,13 @@
     margin-right: 20px;
     background-color: whitesmoke;
     width: 25vw;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+.fun {
+    display: flex;
+    justify-content: center;
+    background-color: whitesmoke;
+    margin-bottom: 10px;
 }
