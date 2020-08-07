@@ -1,0 +1,16 @@
+.footer-border {
+    border-top: whitesmoke 5px solid;
+    margin-top: 50px;
+}
+
+.made-by {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.contact {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}

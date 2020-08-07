@@ -1,11 +1,10 @@
 .card-border {
     border: black 2px solid;
     margin: 15px;
-    transition: opacity 1s;
 }
 
 .card-border:hover {
-    opacity: 0.50;
+    cursor: pointer;
 }
 
 .image {

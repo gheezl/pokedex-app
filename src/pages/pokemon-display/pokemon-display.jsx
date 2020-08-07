@@ -7,6 +7,7 @@ import { selectIndividualPokemon } from "../../redux/pokemon/pokemon-selectors.j
 
 import "./pokemon-display.css"
 import Loading from '../../components/loading/loading.jsx';
+import WithFooter from "../../components/footer/with-footer/with-footer.jsx"
 
 const PokemonDisplayHeader = lazy(() => import("../../components/pokemon-display-header/pokemon-display-header.jsx"))
 
@@ -44,4 +45,4 @@ const mapStateToProps = createStructuredSelector({
 })
 
 
-export default connect(mapStateToProps)(PokemonDisplay);
+export default WithFooter(connect(mapStateToProps)(PokemonDisplay));

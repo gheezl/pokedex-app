@@ -1,11 +1,14 @@
 import React, { Fragment, lazy, Suspense } from 'react';
 
 import "./homepage.css"
+
 import Loading from '../../components/loading/loading';
+import WithFooter from "../../components/footer/with-footer/with-footer.jsx"
 
 const Introduction = lazy(() => import("./introduction/introduction.jsx"))
 const Links = lazy(() => import("./links/links.jsx"))
 const ViewCode = lazy(() => import("./view-code/view-code.jsx"))
+const Footer = lazy(() => import("../../components/footer/footer.jsx"))
 
 const HomePage = () => {
     return (
@@ -31,4 +34,4 @@ const HomePage = () => {
     )
 }
 
-export default HomePage;
+export default WithFooter(HomePage);

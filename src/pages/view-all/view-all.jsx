@@ -8,6 +8,7 @@ import { getPokemonStart } from "../../redux/pokemon/pokemon-actions.js"
 import { selectAllPokemon, selectDisplayCard, selectNext, selectPrevious } from "../../redux/pokemon/pokemon-selectors.js"
 
 import Loading from '../../components/loading/loading.jsx';
+import WithFooter from "../../components/footer/with-footer/with-footer.jsx"
 
 const Card = lazy(() => import("../../components/card/card.jsx"))
 
@@ -90,4 +91,4 @@ const mapDispatchToProps = (dispatch) => ({
     getPokemonStart: (url) => dispatch(getPokemonStart(url))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(ViewAll);
+export default WithFooter(connect(mapStateToProps, mapDispatchToProps)(ViewAll));
