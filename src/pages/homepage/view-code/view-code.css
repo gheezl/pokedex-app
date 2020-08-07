@@ -1,0 +1,24 @@
+.view-code {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.github-link {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-right: 10px;
+}
+
+.link-image {
+    display: flex;
+    justify-content: center;
+}
+
+.repository {
+    display: flex;
+    justify-content: center;
+    margin-top: 45px;
+    font-size: 20px;
+}

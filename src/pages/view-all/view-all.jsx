@@ -1,4 +1,4 @@
-import React, { Fragment, lazy, Component } from 'react';
+import React, { Fragment, lazy, Component, Suspense } from 'react';
 import { connect } from 'react-redux'
 import { createStructuredSelector } from "reselect"
 
@@ -33,12 +33,18 @@ class ViewAll extends Component {
 
         const NextPage = () => {
             getPokemonStart(next)
-            this.setState({ counter: counter + 1 })
+
+            if (counter < 34) {
+                this.setState({ counter: counter + 1 })
+            }
         }
 
         const PreviousPage = () => {
             getPokemonStart(previous)
-            this.setState({ counter: counter - 1 })
+
+            if (counter > 1) {
+                this.setState({ counter: counter - 1 })
+            }
         }
 
         return (
@@ -55,7 +61,9 @@ class ViewAll extends Component {
                         displayCard
                             ?
                             allPokemon.map(pokemon => {
-                                return (<Card name={pokemon.name} url={pokemon.url} sprite={"hi"} />)
+                                return (
+                                    <Card name={pokemon.name} url={pokemon.url} sprite={"hi"} />
+                                )
                             }
                             )
                             : (
