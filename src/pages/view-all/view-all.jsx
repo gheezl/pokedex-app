@@ -14,17 +14,31 @@ const Card = lazy(() => import("../../components/card/card.jsx"))
 
 
 class ViewAll extends Component {
+    constructor() {
+        super();
+        this.state = {
+            counter: 1
+        }
+    }
+
+
     componentDidMount() {
         this.props.getPokemonStart("https://pokeapi.co/api/v2/pokemon?limit=28")
     }
 
     render() {
+        const { counter } = this.state
+        const { getPokemonStart, allPokemon, next, previous, displayCard } = this.props
+
+
         const NextPage = () => {
-            this.props.getPokemonStart(this.props.next)
+            getPokemonStart(next)
+            this.setState({ counter: counter + 1 })
         }
 
         const PreviousPage = () => {
-            this.props.getPokemonStart(this.props.previous)
+            getPokemonStart(previous)
+            this.setState({ counter: counter - 1 })
         }
 
         return (
@@ -38,9 +52,9 @@ class ViewAll extends Component {
                 </div>
                 <div className="card">
                     {
-                        this.props.displayCard
+                        displayCard
                             ?
-                            this.props.allPokemon.map(pokemon => {
+                            allPokemon.map(pokemon => {
                                 return (<Card name={pokemon.name} url={pokemon.url} sprite={"hi"} />)
                             }
                             )
@@ -49,6 +63,9 @@ class ViewAll extends Component {
                             )
                     }
                 </div>
+                <span className="counter">
+                    Page {counter}/ 34
+                    </span>
             </Fragment>
         )
     }

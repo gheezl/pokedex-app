@@ -8,11 +8,6 @@
 .title {
     display: flex;
     margin: 20px;
-    transition: opacity 1s;
-}
-
-.title:hover {
-    opacity: 0.50;
 }
 
 .links {
@@ -25,12 +20,6 @@
 
 .link {
     margin: 25px;
-    transition: opacity 1s;
-}
-
-.link:hover {
-    cursor: pointer;
-    opacity: 0.50;
 }
 
 .search-border {
