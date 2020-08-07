@@ -5,6 +5,7 @@ import Loading from '../../components/loading/loading';
 
 const Introduction = lazy(() => import("./introduction/introduction.jsx"))
 const Links = lazy(() => import("./links/links.jsx"))
+const Footer = lazy(() => import("../../components/footer/footer.jsx"))
 
 const HomePage = () => {
     return (
@@ -18,6 +19,7 @@ const HomePage = () => {
                 <Suspense fallback={<Loading />}>
                     <Introduction />
                     <Links />
+                    <Footer />
                 </Suspense>
             </div>
         </Fragment>

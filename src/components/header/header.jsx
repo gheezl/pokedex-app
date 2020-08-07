@@ -27,7 +27,7 @@ const Header = () => {
                     {
                         toggle
                             ? (
-                                <Suspense fallback="loading...">
+                                <Suspense fallback=" loading...">
                                     <Search />
                                 </Suspense>
                             )

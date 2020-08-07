@@ -26,7 +26,7 @@ const MovesBorder = ({ individualPokemon }) => {
                         </div>
                     )
                     : (
-                        <span>No moves on document</span>
+                        <span>No moves documented</span>
                     )
             }
 

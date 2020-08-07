@@ -1,6 +1,8 @@
 .abilites-border {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    margin-left: 48vw;
     margin-top: 50px;
     margin-bottom: 50px;
 }
@@ -8,6 +10,7 @@
 @media only screen and (max-width: 800px) {
     .abilites-border {
         display: flex;
+        justify-content: center;
         flex-direction: column;
         margin-left: 0;
     }

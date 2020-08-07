@@ -1,14 +1,15 @@
+.get-started {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
 .links-border {
     display: flex;
     justify-content: center;
 }
 
-/* .to-profile {
-    margin: 25px;
-    font-size: 20px;
-} */
-
 .to-location {
-    margin: 50px;
+    margin: 40px;
     font-size: 20px;
 }

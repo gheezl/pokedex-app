@@ -6,6 +6,9 @@ import "./links.css"
 const Links = () => {
     return (
         <Fragment>
+            <div className="get-started">
+                <h2>Get started</h2>
+            </div>
             <div className="links-border">
                 <Link className="to-location" to="/profile" >
                     <span>↽  Create an account</span>

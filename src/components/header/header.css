@@ -52,7 +52,7 @@
     }
 
     .title {
-        font-size: 15px;
+        font-size: 10px;
         margin: 10px;
     }
 
@@ -66,6 +66,6 @@
 
     .search-border {
         display: grid;
-        margin-right: 15px;
+        margin-right: 5px;
     }
 }

@@ -15,7 +15,6 @@ const Moves = ({ move }) => {
         } catch (error) {
             console.log(error)
         }
-
     }
 
     return (

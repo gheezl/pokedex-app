@@ -34,29 +34,27 @@ const GameAppearances = ({ appearance }) => {
     return (
         <Fragment>
             <div onClick={onClickFunction} className="appearances-border">
-                <div className="appearances">
-                    <span> pokemon {appearance.version.name} {
-                        toggle
-                            ? (
-                                <span>❱</span>
-                            )
-                            : (
-                                null
-                            )
-                    }
-                    </span>
-                    {
-                        toggle
-                            ? (
-                                null
-                            )
-                            : (
-                                <div className="data">
-                                    <span className="data-span"> game group: {groupName}<br />generation: {generation}</span>
-                                </div>
-                            )
-                    }
-                </div>
+                <span> pokemon {appearance.version.name} {
+                    toggle
+                        ? (
+                            <span>❱</span>
+                        )
+                        : (
+                            null
+                        )
+                }
+                </span>
+                {
+                    toggle
+                        ? (
+                            null
+                        )
+                        : (
+                            <div className="data">
+                                <span className="data-span"> game group: {groupName}<br />generation: {generation}</span>
+                            </div>
+                        )
+                }
             </div>
         </Fragment>
     )
