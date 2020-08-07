@@ -9,7 +9,7 @@ const Footer = () => {
         <Fragment>
             <div className="footer-border">
                 <span className="made-by">
-                    Made by gheezl
+                    Made by Jacob Rushlow
                 </span>
                 <span className="contact">
                     contact: gheezl25@gmail.com

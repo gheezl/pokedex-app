@@ -1,10 +1,13 @@
 import React, { Fragment, lazy, Suspense } from 'react';
 import { Route, Switch } from "react-router-dom";
+import Particles from 'react-particles-js';
+
 
 import './App.css';
 
 import Header from "./components/header/header.jsx"
 import Loading from "./components/loading/loading.jsx"
+import ParticlesComponent from './components/particles/particles.jsx';
 
 const HomePage = lazy(() => import("./pages/homepage/homepage.jsx"))
 const ViewAll = lazy(() => import("./pages/view-all/view-all.jsx"))
@@ -18,6 +21,7 @@ function App() {
   return (
     <Fragment>
       <Header />
+      <ParticlesComponent />
       <Switch>
         <Suspense fallback={<Loading />}>
           <Route exact path="/" component={HomePage} />

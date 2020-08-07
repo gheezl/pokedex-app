@@ -1,7 +1,6 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, lazy, Suspense } from 'react';
 
-import Footer from '../footer';
-
+const Footer = lazy(() => import("../footer.jsx"))
 
 
 const WithFooter = (WrappedComponent) => {
@@ -9,7 +8,9 @@ const WithFooter = (WrappedComponent) => {
         return (
             <Fragment>
                 <WrappedComponent />
-                <Footer />
+                <Suspense>
+                    <Footer />
+                </Suspense>
             </Fragment>
         )
     }
