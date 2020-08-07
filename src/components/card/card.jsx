@@ -21,6 +21,7 @@ class Card extends Component {
         if (props.url !== state.url) {
             return {
                 url: props.url,
+                toggle: false
             }
         }
     }
@@ -30,7 +31,7 @@ class Card extends Component {
         this.setState({ url: url })
         fetch(url)
             .then(response => response.json())
-            .then(pokemon => this.setState({ spriteUrl: pokemon.sprites.front_default })
+            .then(pokemon => this.setState({ spriteUrl: pokemon.sprites.front_default, toggle: true })
             )
     }
 
@@ -38,7 +39,7 @@ class Card extends Component {
         if (prevState.url !== this.state.url) {
             fetch(this.state.url)
                 .then(response => response.json())
-                .then(pokemon => this.setState({ spriteUrl: pokemon.sprites.front_default })
+                .then(pokemon => this.setState({ spriteUrl: pokemon.sprites.front_default, toggle: true })
                 )
         }
     }
@@ -46,7 +47,7 @@ class Card extends Component {
 
     render() {
         const { getIndividualPokemonStart, name, url, history } = this.props
-        const { spriteUrl } = this.state
+        const { spriteUrl, toggle } = this.state
 
 
         const onClickFunction = () => {
@@ -58,11 +59,24 @@ class Card extends Component {
             <Fragment>
                 <div onClick={onClickFunction} className="card-border">
                     <div className="image">
-                        <img alt="" src={spriteUrl} />
+                        {
+                            toggle
+                                ? (
+                                    <img alt="" src={spriteUrl} />
+                                )
+                                : (
+                                    <div className="card-sprite">
+                                        <img height="75px" width="75px" alt="" src="https://bison.usgs.gov/images/spinner2.gif" />
+                                        {/* <span>Loading...</span> */}
+                                    </div>
+
+                                )
+                        }
                     </div>
                     <div className="name">
                         <span>{name}</span>
                     </div>
+
                 </div>
             </Fragment>
         )
