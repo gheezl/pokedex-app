@@ -26,7 +26,8 @@
 }
 
 .custom-button {
-    background-color: whitesmoke;
+    background-color: black;
+    color:white;
     border: none;
     border-left: black 1px solid;
     padding: 5px;
