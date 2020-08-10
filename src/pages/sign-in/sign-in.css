@@ -1,0 +1,17 @@
+.sign-in-header {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.sign-in-form {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.input-field {
+    border: none;
+    background-color: whitesmoke;
+    border-left: black 1px solid;
+}
