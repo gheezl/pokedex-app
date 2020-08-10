@@ -1,0 +1,34 @@
+.sign-in-header {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.sign-in-form-border {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.sign-in-form {
+    display: flex;
+    flex-direction: column;
+    grid-column-start: 3;
+    grid-column-end: 3;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.input-field {
+    border: none;
+    background-color: whitesmoke;
+    border-left: black 1px solid;
+    padding: 5px;
+}
+
+.custom-button {
+    background-color: whitesmoke;
+    border: none;
+    border-left: black 1px solid;
+    padding: 5px;
+    cursor: pointer;
+}

@@ -30,3 +30,36 @@
     font-size: 30px;
     /* border: black 1px solid; */
 }
+
+@media only screen and (max-width: 800px) {
+    .to-profile-locations {
+        grid-template-columns: 1fr;
+        grid-template-rows: 3fr;
+        margin-top: 45vw;
+    }
+
+    .to-create-account {
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 1;
+        grid-row-end: 1;
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+
+    .equal-arrow {
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 2;
+        grid-row-end: 2;
+    }
+
+    .to-sign-in {
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 3;
+        grid-row-end: 3;
+        font-size: 25px;
+        margin-top: 20px;
+    }
+}

@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
 import { Link } from "react-router-dom";
 
 import "./profile.css"
@@ -17,7 +17,7 @@ const Profile = () => {
                     : (
                         <div className="to-profile-locations">
                             <Link className="to-create-account" to="/create-account">
-                                ↽ Create account
+                                ↽ Sign up
                                 </Link>
 
                             <span className="equal-arrow">⇌</span>

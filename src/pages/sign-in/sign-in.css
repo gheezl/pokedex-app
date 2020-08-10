@@ -4,8 +4,16 @@
     font-size: 30px;
 }
 
+.sign-in-form-border {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
 .sign-in-form {
     display: flex;
+    flex-direction: column;
+    grid-column-start: 3;
+    grid-column-end: 3;
     justify-content: center;
     margin-top: 25px;
 }
@@ -14,4 +22,24 @@
     border: none;
     background-color: whitesmoke;
     border-left: black 1px solid;
+    padding: 5px;
+}
+
+.custom-button {
+    background-color: whitesmoke;
+    border: none;
+    border-left: black 1px solid;
+    padding: 5px;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 800px) {
+    .sign-in-header {
+        font-size: 25px;
+    }
+
+    .sign-in-form {
+        grid-column-start: 2;
+        grid-column-end: 5;
+    }
 }
