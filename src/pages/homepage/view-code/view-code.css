@@ -4,16 +4,16 @@
     margin-top: 15px;
 }
 
+.link-image {
+    display: flex;
+    justify-content: center;
+}
+
 .github-link {
     display: flex;
     justify-content: center;
     margin-top: 50px;
     margin-right: 10px;
-}
-
-.link-image {
-    display: flex;
-    justify-content: center;
 }
 
 .repository {

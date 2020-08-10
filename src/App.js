@@ -17,7 +17,7 @@ const CreateAccount = lazy(() => import("./pages/create-account/create-account.j
 
 
 
-function App() {
+const App = () => {
   return (
     <Fragment>
       <Header />

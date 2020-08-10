@@ -21,6 +21,7 @@
 .homepage-footer {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin-top: 35px;
 }
 
 .homepage-links {
@@ -29,12 +30,23 @@
 }
 
 @media only screen and (max-width: 800px) {
+    .homepage-header {
+        display: flex;
+    }
+
     .welcome {
-        font-size: 15px;
+        font-size: 25px;
     }
 
     .pokemon-image {
-        height: 15px;
-        margin-top: 5px;
+        display: flex;
+        justify-content: center;
+        height: 50px;
+        width: 50px;
+    }
+
+    .homepage-footer {
+        display: flex;
+        flex-direction: column;
     }
 }

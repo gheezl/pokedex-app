@@ -8,7 +8,8 @@ import WithFooter from "../../components/footer/with-footer/with-footer.jsx"
 const Introduction = lazy(() => import("./introduction/introduction.jsx"))
 const Links = lazy(() => import("./links/links.jsx"))
 const ViewCode = lazy(() => import("./view-code/view-code.jsx"))
-// const Footer = lazy(() => import("../../components/footer/footer.jsx"))
+
+
 
 const HomePage = () => {
     return (
