@@ -12,7 +12,7 @@ const ViewCode = () => {
             <a className="link-image" href="https://github.com/gheezl/pokedex-app">
                 <img className="github-link" alt="" src="github-512.webp" height="25px" />
                 <span className="repository">
-                    View github respository
+                    View github repository
                 </span>
             </a>
         </Fragment>

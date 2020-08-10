@@ -1,0 +1,32 @@
+.to-profile-locations {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    margin-top: 50px;
+}
+
+.to-create-account {
+    display: flex;
+    justify-content: center;
+    grid-column-start: 3;
+    grid-column-end: 3;
+    font-size: 30px;
+    /* border: black 1px solid; */
+}
+
+.equal-arrow {
+        display: flex;
+    justify-content: center;
+    grid-column-start: 4;
+    grid-column-end: 4;
+    font-size: 30px;
+    /* border: black 1px solid; */
+}
+
+.to-sign-in {
+    display: flex;
+    justify-content: center;
+    grid-column-start: 5;
+    grid-column-end: 5;
+    font-size: 30px;
+    /* border: black 1px solid; */
+}
