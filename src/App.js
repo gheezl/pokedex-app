@@ -41,12 +41,12 @@ class App extends Component {
               id: snapShot.id,
               ...snapShot.data()
             }
-          })
+          }, () => console.log("this is state", this.state))
         })
-        console.log(this.state)
       }
-
-      this.setState({ currentUser: userAuth })
+      else {
+        this.setState({ currentUser: userAuth })
+      }
     })
   }
 

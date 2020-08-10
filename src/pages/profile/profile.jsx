@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { Link } from "react-router-dom";
 
 import "./profile.css"
+import { auth } from '../../firebase/firebase';
 
 
 
@@ -18,14 +19,15 @@ const Profile = () => {
                         <div className="to-profile-locations">
                             <Link className="to-create-account" to="/create-account">
                                 ↽ Sign up
-                                </Link>
+                            </Link>
 
                             <span className="equal-arrow">⇌</span>
 
                             <Link className="to-sign-in" to="/sign-in">
                                 Sign in ⇁
-                                </Link>
+                            </Link>
 
+                            <button onClick={() => auth.signOut()} >Sign out</button>
                         </div>
                     )
             }
