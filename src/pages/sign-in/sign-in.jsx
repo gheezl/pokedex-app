@@ -1,8 +1,12 @@
 import React, { Fragment, Component } from 'react';
+import { connect } from 'react-redux'
 
 import "./sign-in.css"
 
 import { auth } from "../../firebase/firebase.js"
+
+import { signInStart } from "../../redux/user/user-actions.js"
+
 
 class SignIn extends Component {
     constructor() {
@@ -15,12 +19,14 @@ class SignIn extends Component {
 
     render() {
         const { password, email } = this.state
+        const { signInStart } = this.props
 
         const onSubmit = async (event) => {
             event.preventDefault()
 
             try {
-                await auth.signInWithEmailAndPassword(email, password)
+                // await auth.signInWithEmailAndPassword(email, password)
+                signInStart({ email, password })
                 this.setState({
                     email: '',
                     password: '',
@@ -57,4 +63,8 @@ class SignIn extends Component {
     }
 }
 
-export default SignIn;
+const mapDispatchToProps = (dispatch) => ({
+    signInStart: (emailAndPassword) => dispatch(signInStart(emailAndPassword))
+})
+
+export default connect(null, mapDispatchToProps)(SignIn);

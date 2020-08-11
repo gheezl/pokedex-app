@@ -1,4 +1,3 @@
-import userTypes from "./user-types.js"
 import UserActionTypes from "./user-types.js"
 
 // sign in actions
