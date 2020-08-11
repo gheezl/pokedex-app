@@ -44,7 +44,7 @@ const PokemonDisplayHeader = ({ individualPokemon, user, individualPokemonData }
                         <div className="add-pokemon-border">
                             <button className="add-pokemon-button">
                                 Add pokemon to collection
-                </button>
+                        </button>
                         </div>
                     )
                     : (
@@ -60,5 +60,9 @@ const mapStateToProps = createStructuredSelector({
     user: selectCurrentUser,
     individualPokemonData: selectIndividualPokemonData
 })
+
+// const mapDispatchToProps = (dispatch) => ({
+
+// })
 
 export default connect(mapStateToProps)(PokemonDisplayHeader);

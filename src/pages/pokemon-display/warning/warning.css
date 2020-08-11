@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     margin-top: 50px;
+    
 }
 
 .warning-image {
@@ -13,4 +14,19 @@
     display: flex;
     justify-content: center;
     margin-top: 25px;
+    margin-bottom: 15vw;
+}
+
+@media only screen and (max-width: 800px) {
+    .warning-image {
+        height: 250.5px;
+        width: 187.5px;
+    }
+
+    .warning-message {
+        margin-left: 25px;
+        margin-right: 25px;
+        font-size: 15px;
+        margin-bottom: 0;
+    }
 }

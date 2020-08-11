@@ -34,7 +34,7 @@ const Profile = ({ user }) => {
                     : (
                         <Fragment>
                             <div className="to-profile-locations">
-                                <Link className="to-create-account" to="/create-account">
+                                <Link className="to-create-account" to="/sign-up">
                                     ↽ Sign up
                                 </Link>
 

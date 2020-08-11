@@ -4,6 +4,7 @@ import storage from "redux-persist/lib/storage"
 
 import pokemonReducer from "./pokemon/pokemon-reducer.js";
 import userReducer from "./user/user-reducer.js"
+import pokemonCollectionReducer from "./pokemon-collection/pokemon-collection-reducer.js"
 
 
 // const persistConfig = {
@@ -14,7 +15,8 @@ import userReducer from "./user/user-reducer.js"
 
 const rootReducer = combineReducers({
     pokemon: pokemonReducer,
-    currentUser: userReducer
+    currentUser: userReducer,
+    pokemonCollection: pokemonCollectionReducer
 })
 
 

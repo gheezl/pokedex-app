@@ -29,5 +29,5 @@ export const selectPrevious = createSelector(
 
 export const selectIndividualPokemonData = createSelector(
     [selectPokemonState],
-    (pokemon) => pokemon.individualPokemonUrl
+    (pokemon) => pokemon.individualPokemonData
 )
