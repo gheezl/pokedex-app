@@ -1,7 +1,10 @@
 import React, { Fragment, lazy, Suspense, Component } from 'react';
 import { Route, Switch } from "react-router-dom";
+import { connect } from 'react-redux'
 
 import './App.css';
+
+import { checkUserSession } from "./redux/user/user-actions.js"
 
 import Header from "./components/header/header.jsx"
 import Loading from "./components/loading/loading.jsx"
@@ -28,24 +31,9 @@ class App extends Component {
   unsubscribeFromAuth = null
 
   componentDidMount() {
-    // this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-    //   if (userAuth) {
-    //     const userRef = await createUserProfileDocument(userAuth)
+    const { checkUserSession } = this.props
 
-    //     userRef.onSnapshot(snapShot => {
-    //       console.log("this is snapshot", snapShot)
-    //       this.setState({
-    //         currentUser: {
-    //           id: snapShot.id,
-    //           ...snapShot.data()
-    //         }
-    //       }, () => console.log("this is state", this.state))
-    //     })
-    //   }
-    //   else {
-    //     this.setState({ currentUser: userAuth })
-    //   }
-    // })
+    checkUserSession()
   }
 
   componentWillUnmount() {
@@ -73,4 +61,8 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => ({
+  checkUserSession: () => dispatch(checkUserSession())
+})
+
+export default connect(null, mapDispatchToProps)(App);

@@ -3,8 +3,6 @@ import { connect } from 'react-redux'
 
 import "./sign-in.css"
 
-import { auth } from "../../firebase/firebase.js"
-
 import { signInStart } from "../../redux/user/user-actions.js"
 
 

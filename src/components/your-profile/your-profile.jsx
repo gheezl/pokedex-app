@@ -1,11 +1,12 @@
 import React, { Fragment } from 'react';
+import { connect } from 'react-redux'
 
 import "./your-profile.css"
 
 import { signOutStart } from "../../redux/user/user-actions.js"
 
 
-const YourProfile = ({ user }) => {
+const YourProfile = ({ user, signOutStart }) => {
 
     const onClickFunction = () => {
         signOutStart()
@@ -30,7 +31,7 @@ const YourProfile = ({ user }) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    signOutStart: () => dispatch(signOutStart)
+    signOutStart: () => dispatch(signOutStart())
 })
 
-export default YourProfile;
+export default connect(null, mapDispatchToProps)(YourProfile);

@@ -47,3 +47,9 @@ export const signOutSuccess = () => ({
 export const signOutFailure = () => ({
     type: UserActionTypes.SIGN_OUT_FAILURE
 })
+
+// checks for existing user
+
+export const checkUserSession = () => ({
+    type: UserActionTypes.CHECK_USER_SESSION
+})

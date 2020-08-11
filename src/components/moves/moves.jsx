@@ -24,7 +24,7 @@ const Moves = ({ move }) => {
                     {
                         toggle
                             ? (
-                                <span>❱</span>
+                                <span> ❱</span>
                             )
                             : (
                                 null

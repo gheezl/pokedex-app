@@ -64,10 +64,10 @@ class SignUp extends Component {
             </span>
                 <div className="sign-in-form-border">
                     <form className="sign-in-form" onSubmit={onSubmit}>
-                        <input onChange={onChange} className="input-field" type="text" placeholder="username" name="displayName" />
-                        <input onChange={onChange} className="input-field" type="email" placeholder="email" name="email" />
-                        <input onChange={onChange} className="input-field" type="password" placeholder="password" name="password" />
-                        <input onChange={onChange} className="input-field" type="password" placeholder="verify password" name="verifyPassword" />
+                        <input onChange={onChange} className="input-field" type="text" placeholder="username" name="displayName" required />
+                        <input onChange={onChange} className="input-field" type="email" placeholder="email" name="email" required />
+                        <input onChange={onChange} className="input-field" type="password" placeholder="password" name="password" required />
+                        <input onChange={onChange} className="input-field" type="password" placeholder="verify password" name="verifyPassword" required />
                         <button type="submit" className="custom-button">
                             submit
                     </button>
