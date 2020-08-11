@@ -6,7 +6,7 @@ const INITIAL_STATE = {
 
 const pokemonCollectionReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case PokemonCollectionActionTypes.SET_POKEMONSTART:
+        case PokemonCollectionActionTypes.SET_POKEMON_START:
             return {
                 ...state
             }

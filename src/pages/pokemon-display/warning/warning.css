@@ -14,7 +14,7 @@
     display: flex;
     justify-content: center;
     margin-top: 25px;
-    margin-bottom: 15vw;
+    margin-bottom: 275px;
 }
 
 @media only screen and (max-width: 800px) {
@@ -27,6 +27,6 @@
         margin-left: 25px;
         margin-right: 25px;
         font-size: 15px;
-        margin-bottom: 0;
+        margin-bottom: 175px;
     }
 }

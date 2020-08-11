@@ -6,12 +6,18 @@ import "./pokemon-display-header.css"
 
 import { selectCurrentUser } from "../../redux/user/user-selectors.js"
 import { selectIndividualPokemonData } from "../../redux/pokemon/pokemon-selectors.js"
+import { setPokemonStart } from "../../redux/pokemon-collection/pokemon-collection-actions.js"
 
 const Type = lazy(() => import("./type/type.jsx"))
 
 
-const PokemonDisplayHeader = ({ individualPokemon, user, individualPokemonData }) => {
+const PokemonDisplayHeader = ({ individualPokemon, user, individualPokemonData, setPokemonStart }) => {
     console.log(individualPokemonData)
+
+    const onClickFunction = () => {
+        setPokemonStart(individualPokemonData)
+    }
+
     return (
         <Fragment>
             <div className="num">
@@ -42,9 +48,9 @@ const PokemonDisplayHeader = ({ individualPokemon, user, individualPokemonData }
                 user
                     ? (
                         <div className="add-pokemon-border">
-                            <button className="add-pokemon-button">
+                            <button onClick={onClickFunction} className="add-pokemon-button">
                                 Add pokemon to collection
-                        </button>
+                            </button>
                         </div>
                     )
                     : (
@@ -61,8 +67,8 @@ const mapStateToProps = createStructuredSelector({
     individualPokemonData: selectIndividualPokemonData
 })
 
-// const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch) => ({
+    setPokemonStart: (pokemon) => dispatch(setPokemonStart(pokemon))
+})
 
-// })
-
-export default connect(mapStateToProps)(PokemonDisplayHeader);
+export default connect(mapStateToProps, mapDispatchToProps)(PokemonDisplayHeader);

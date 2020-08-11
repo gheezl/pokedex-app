@@ -1,14 +1,16 @@
 import React, { Fragment, lazy, Suspense, Component } from 'react';
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from 'react-redux'
 
 import './App.css';
 
 import { checkUserSession } from "./redux/user/user-actions.js"
+import { selectCurrentUser } from "./redux/user/user-selectors.js"
 
 import Header from "./components/header/header.jsx"
 import Loading from "./components/loading/loading.jsx"
 import ParticlesComponent from './components/particles/particles.jsx';
+import { createStructuredSelector } from 'reselect';
 
 const HomePage = lazy(() => import("./pages/homepage/homepage.jsx"))
 const ViewAll = lazy(() => import("./pages/view-all/view-all.jsx"))
@@ -33,6 +35,8 @@ class App extends Component {
   }
 
   render() {
+    const { user } = this.props
+
     return (
       <Fragment>
         <Header />
@@ -43,8 +47,8 @@ class App extends Component {
             <Route exact path="/view-all" component={ViewAll} />
             <Route exact path="/display" component={PokemonDisplay} />
             <Route exact path="/profile" component={Profile} />
-            <Route exact path="/sign-in" component={SignIn} />
-            <Route exact path="/sign-up" component={SignUp} />
+            <Route exact path="/sign-in" render={() => user ? (<Redirect to="/" />) : (<SignIn />)} />
+            <Route exact path="/sign-up" render={() => user ? (<Redirect to="/" />) : (<SignUp />)} />
           </Suspense>
         </Switch>
       </Fragment>
@@ -56,4 +60,8 @@ const mapDispatchToProps = (dispatch) => ({
   checkUserSession: () => dispatch(checkUserSession())
 })
 
-export default connect(null, mapDispatchToProps)(App);
+const mapStateToProps = createStructuredSelector({
+  user: selectCurrentUser
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
