@@ -24,6 +24,7 @@ export function* signIn({ payload: { email, password } }) {
         yield put(signInSuccess({ id: userSnapshot.id, ...userSnapshot.data() }))
     }
     catch (error) {
+        yield alert(error.message)
         yield put(signInFailure(error))
     }
 }
@@ -36,6 +37,7 @@ export function* signUp({ payload: { displayName, email, password } }) {
         yield put(signUpSuccess({ id: userSnapshot.id, ...userSnapshot.data() }))
     }
     catch (error) {
+        yield alert(error.message)
         yield put(signUpFailure(error))
     }
 }

@@ -14,6 +14,7 @@ const config = {
     measurementId: "G-ZWS44T949C"
 }
 
+// this function creates a user or checks if one all ready exists
 
 export const createUserProfileDocument = async (userAuth, displayName) => {
     if (!userAuth) return;
@@ -40,6 +41,8 @@ export const createUserProfileDocument = async (userAuth, displayName) => {
 
     return userRef
 }
+
+// this is a subscribtion to the auth library to listen for a previously signed in user
 
 export const getCurrentUser = () => {
     return new Promise((resolve, reject) => {

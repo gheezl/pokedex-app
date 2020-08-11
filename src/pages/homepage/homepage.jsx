@@ -6,62 +6,22 @@ import "./homepage.css"
 
 import { selectCurrentUser } from "../../redux/user/user-selectors.js"
 
-import Loading from '../../components/loading/loading';
 import WithFooter from "../../components/footer/with-footer/with-footer.jsx"
 
-const Introduction = lazy(() => import("./introduction/introduction.jsx"))
-const Links = lazy(() => import("./links/links.jsx"))
-const ViewCode = lazy(() => import("./view-code/view-code.jsx"))
-const ViewProfile = lazy(() => import("./view-profile/view-profile.jsx"))
-
+const HomepageWithUser = lazy(() => import("./homepage-with-user/homepage-with-user.jsx"))
+const HomepageWithoutUser = lazy(() => import("./homepage-without-user/homepage-without-user.jsx"))
 
 
 const HomePage = ({ user }) => {
-    console.log(user)
-
     return (
         <Fragment>
             {
                 user
                     ? (
-                        <Fragment>
-                            <div>
-                                <div className="homepage-header">
-                                    <img alt="pokeball" className="pokemon-image" src="pokeball-opening-gif-8.gif" />
-                                    <span className="welcome">Welcome to your Pokédex {user.displayName}</span>
-                                </div>
-                            </div>
-                            <Suspense fallback={<Loading />}>
-                                <Introduction />
-                                <div className="homepage-footer">
-                                    <div className="homepage-links">
-                                        <ViewProfile />
-                                    </div>
-                                    <div className="homepage-view-code">
-                                        <ViewCode />
-                                    </div>
-                                </div>
-                            </Suspense>
-                        </Fragment>
+                        <HomepageWithUser user={user} />
                     )
                     : (
-                        <div>
-                            <div className="homepage-header">
-                                <img alt="pokeball" className="pokemon-image" src="pokeball-opening-gif-8.gif" />
-                                <span className="welcome">Welcome to the Pokédex</span>
-                            </div>
-                            <Suspense fallback={<Loading />}>
-                                <Introduction />
-                                <div className="homepage-footer">
-                                    <div className="homepage-links">
-                                        <Links />
-                                    </div>
-                                    <div className="homepage-view-code">
-                                        <ViewCode />
-                                    </div>
-                                </div>
-                            </Suspense>
-                        </div>
+                        <HomepageWithoutUser />
                     )
             }
         </Fragment>

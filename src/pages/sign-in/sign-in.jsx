@@ -23,7 +23,6 @@ class SignIn extends Component {
             event.preventDefault()
 
             try {
-                // await auth.signInWithEmailAndPassword(email, password)
                 signInStart({ email, password })
                 this.setState({
                     email: '',

@@ -1,20 +1,48 @@
 import React, { Fragment } from 'react';
+import { connect } from 'react-redux'
+import { createStructuredSelector } from "reselect"
 
 import "./introduction.css"
 
-const Introduction = () => {
+import { selectCurrentUser } from "../../../redux/user/user-selectors.js"
+
+
+const Introduction = ({ user }) => {
     return (
         <Fragment>
             <div className="introduction">
                 <span className="introduction-message">Introduction</span>
                 <div className="introduction-content">
-                    <span className="introduction-paragraph">
-                        Hi! Welcome to your Pokédex, here you will find access to more than 900 pokemon and all of their relevant information. You can view all Pokémon by clicking on the View all tab
-                        on your top right, or you can use the Search bar to look up a specific Pokémon.
-                    </span>
-                    <span className="introduction-paragraph">
-                        If you create an account and sign in, you can also add Pokémon to your own personal Pokémon collection for you to view.
-                    </span>
+
+                    {
+                        user
+                            ? (
+                                <Fragment>
+                                    <span className="introduction-paragraph">
+                                        Hi {user.displayName}! Welcome to your Pokédex! If you want to add a Pokémon to your personal Pokémon collection just use either the
+                                        search bar or the view all tab in the top right corner to find one.
+                                    </span>
+                                    <span className="introduction-paragraph">
+                                        You can add an unlimited amount of Pokémon to your collection.
+                                        Enjoy yourself {user.displayName}!
+                                    </span>
+                                </Fragment>
+                            )
+                            : (
+                                <Fragment>
+                                    <span className="introduction-paragraph">
+                                        Hi! Welcome to the Pokédex, here you will find access to more than 900 Pokémon and all of their relevant information.
+                                        You can view all Pokémon by clicking on the View all tab
+                                        on your top right, or you can use the Search bar to look up a specific Pokémon.
+                                    </span>
+                                    <span className="introduction-paragraph">
+                                        If you create an account and sign in, you can also add Pokémon to your own personal Pokémon collection for you to view.
+                                    </span>
+                                </Fragment>
+                            )
+                    }
+
+
                     <span className="fun">
                         Have fun!
                     </span>
@@ -24,5 +52,9 @@ const Introduction = () => {
     )
 }
 
+const mapStateToProps = createStructuredSelector({
+    user: selectCurrentUser
+})
 
-export default Introduction;
+
+export default connect(mapStateToProps)(Introduction);

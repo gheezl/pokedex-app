@@ -18,8 +18,6 @@ const SignIn = lazy(() => import("./pages/sign-in/sign-in.jsx"))
 const CreateAccount = lazy(() => import("./pages/sign-up/sign-up.jsx"))
 
 
-
-
 class App extends Component {
   constructor() {
     super();
@@ -28,18 +26,11 @@ class App extends Component {
     }
   }
 
-  unsubscribeFromAuth = null
-
   componentDidMount() {
     const { checkUserSession } = this.props
 
     checkUserSession()
   }
-
-  componentWillUnmount() {
-    this.unsubscribeFromAuth()
-  }
-
 
   render() {
     return (
