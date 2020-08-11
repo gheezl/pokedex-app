@@ -8,6 +8,17 @@ import { auth } from '../../firebase/firebase';
 
 const Profile = () => {
     const toggle = false
+
+    const SignOut = () => {
+        auth.signOut()
+            .then(() => {
+                console.log("Signed out")
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
+    }
+
     return (
         <Fragment>
             {
@@ -27,7 +38,7 @@ const Profile = () => {
                                 Sign in ⇁
                             </Link>
 
-                            <button onClick={() => auth.signOut()} >Sign out</button>
+                            <button onClick={SignOut} >Sign out</button>
                         </div>
                     )
             }
