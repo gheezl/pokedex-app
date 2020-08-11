@@ -4,6 +4,10 @@ import "./sign-up.css"
 
 import { auth, createUserProfileDocument } from "../../firebase/firebase.js"
 
+import { signUpStart } from "../../redux/user/user-actions.js"
+import { connect } from 'react-redux';
+
+
 class SignUp extends Component {
     constructor() {
         super();
@@ -17,6 +21,7 @@ class SignUp extends Component {
 
     render() {
         const { displayName, email, password, verifyPassword } = this.state
+        const { signUpStart } = this.props
 
         const onSubmit = async (event) => {
             event.preventDefault()
@@ -25,22 +30,25 @@ class SignUp extends Component {
                 alert("Your passwords do not match. Please try again.")
                 return
             }
-
-
-            try {
-                const { user } = await auth.createUserWithEmailAndPassword(email, password)
-                createUserProfileDocument(user, { displayName })
-                this.setState({
-                    displayName: '',
-                    email: '',
-                    password: '',
-                    verifyPassword: '',
-                })
-            }
-            catch (error) {
-                alert(error.message)
+            else {
+                try {
+                    // const { user } = await auth.createUserWithEmailAndPassword(email, password)
+                    // createUserProfileDocument(user, { displayName })
+                    signUpStart({ displayName, email, password })
+                    this.setState({
+                        displayName: '',
+                        email: '',
+                        password: '',
+                        verifyPassword: '',
+                    })
+                }
+                catch (error) {
+                    alert(error.message)
+                }
             }
         }
+
+
 
         const onChange = (event) => {
             const name = event.target.name
@@ -71,4 +79,8 @@ class SignUp extends Component {
     }
 }
 
-export default SignUp;
+const mapDispatchToProps = (dispatch) => ({
+    signUpStart: (data) => dispatch(signUpStart(data))
+})
+
+export default connect(null, mapDispatchToProps)(SignUp);

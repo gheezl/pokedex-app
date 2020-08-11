@@ -6,6 +6,7 @@ const INITIAL_STATE = {
     next: null,
     previous: null,
     individualPokemon: null,
+    individualPokemonUrl: null,
     error: null
 }
 
@@ -56,6 +57,14 @@ const pokemonReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 error: action.payload
+            }
+
+        // saves the individual pokemon name and url
+
+        case PokemonActionTypes.SAVE_INDIVIDUAL_POKEMON:
+            return {
+                ...state,
+                individualPokemonUrl: action.payload
             }
 
 

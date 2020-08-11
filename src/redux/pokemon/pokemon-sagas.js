@@ -7,7 +7,8 @@ import {
     getPokemonFailure,
     displayCard,
     getIndividualPokemonSuccess,
-    getIndividualPokemonFailure
+    getIndividualPokemonFailure,
+    saveIndividualPokemon
 } from "./pokemon-actions.js"
 
 // sagas
@@ -28,12 +29,15 @@ export function* getPokemon({ payload: url }) {
     }
 }
 
-export function* getIndividualPokemon({ payload: url }) {
+export function* getIndividualPokemon({ payload: { url, name } }) {
     try {
         const fetchIndividualPokemon = yield fetch(url)
             .then(response => response.json())
         yield put(
             getIndividualPokemonSuccess(fetchIndividualPokemon)
+        )
+        yield put(
+            saveIndividualPokemon({ url, name })
         )
     }
     catch (error) {

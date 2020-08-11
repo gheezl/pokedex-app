@@ -17,7 +17,7 @@ import {
 // sagas 
 
 export function* signIn({ payload: { email, password } }) {
-    console.log("hi")
+    console.log("this is signed in")
     try {
         const { user } = yield auth.signInWithEmailAndPassword(email, password)
         const userRef = yield call(createUserProfileDocument, user)
@@ -29,6 +29,19 @@ export function* signIn({ payload: { email, password } }) {
     }
 }
 
+export function* signUp({ payload: { displayName, email, password } }) {
+    console.log("this is sign up", displayName, email, password)
+    try {
+        const { user } = yield auth.createUserWithEmailAndPassword(email, password)
+        const userRef = yield call(createUserProfileDocument, user, { displayName })
+        const userSnapshot = yield userRef.get()
+        yield put(signUpSuccess({ id: userSnapshot.id, ...userSnapshot.data() }))
+    }
+    catch (error) {
+        yield put(signUpFailure(error))
+    }
+}
+
 // Listeners
 
 export function* onSignInStart() {
@@ -36,7 +49,7 @@ export function* onSignInStart() {
 }
 
 export function* onSignUpStart() {
-    yield takeLatest(UserActionTypes.SIGN_UP_START, signIn)
+    yield takeLatest(UserActionTypes.SIGN_UP_START, signUp)
 }
 
 

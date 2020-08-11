@@ -40,3 +40,8 @@ export const getIndividualPokemonFailure = (error) => ({
     type: PokemonActionTypes.GET_INDIVIDUAL_POKEMON_FAILURE,
     payload: error
 })
+
+export const saveIndividualPokemon = (data) => ({
+    type: PokemonActionTypes.SAVE_INDIVIDUAL_POKEMON,
+    payload: data
+})

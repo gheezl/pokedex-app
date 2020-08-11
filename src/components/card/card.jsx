@@ -2,7 +2,7 @@ import React, { Fragment, Component } from 'react';
 import { withRouter } from "react-router-dom"
 import { connect } from 'react-redux'
 
-import { getIndividualPokemonStart } from "../../redux/pokemon/pokemon-actions.js"
+import { getIndividualPokemonStart, saveIndividualPokemon } from "../../redux/pokemon/pokemon-actions.js"
 
 import "./card.css"
 
@@ -51,7 +51,7 @@ class Card extends Component {
 
 
         const onClickFunction = () => {
-            getIndividualPokemonStart(url)
+            getIndividualPokemonStart({ url, name })
             history.push("/display")
         }
 
@@ -85,6 +85,7 @@ class Card extends Component {
 
 const mapDispatchToProps = (dispatch) => ({
     getIndividualPokemonStart: (url) => dispatch(getIndividualPokemonStart(url)),
+    // saveIndividualPokemon: (data) => dispatch(saveIndividualPokemon(data))
 })
 
 export default connect(null, mapDispatchToProps)(withRouter(Card));

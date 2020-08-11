@@ -3,8 +3,6 @@ import { Route, Switch } from "react-router-dom";
 
 import './App.css';
 
-import { auth, createUserProfileDocument } from "./firebase/firebase.js"
-
 import Header from "./components/header/header.jsx"
 import Loading from "./components/loading/loading.jsx"
 import ParticlesComponent from './components/particles/particles.jsx';

@@ -1,13 +1,18 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, lazy, Suspense } from 'react';
 import { Link } from "react-router-dom";
-
-import "./profile.css"
+import { connect } from 'react-redux'
+import { createStructuredSelector } from "reselect"
 import { auth } from '../../firebase/firebase';
 
+import "./profile.css"
+
+import { selectCurrentUser } from "../../redux/user/user-selectors.js"
+
+const YourProfile = lazy(() => import("../../components/your-profile/your-profile.jsx"))
 
 
-const Profile = () => {
-    const toggle = false
+const Profile = ({ user }) => {
+    console.log(user)
 
     const SignOut = () => {
         auth.signOut()
@@ -22,28 +27,32 @@ const Profile = () => {
     return (
         <Fragment>
             {
-                toggle
+                user
                     ? (
-                        <span>This is the profile</span>
+                        <YourProfile user={user} />
                     )
                     : (
-                        <div className="to-profile-locations">
-                            <Link className="to-create-account" to="/create-account">
-                                ↽ Sign up
-                            </Link>
+                        <Fragment>
+                            <div className="to-profile-locations">
+                                <Link className="to-create-account" to="/create-account">
+                                    ↽ Sign up
+                                </Link>
 
-                            <span className="equal-arrow">⇌</span>
+                                <span className="equal-arrow">⇌</span>
 
-                            <Link className="to-sign-in" to="/sign-in">
-                                Sign in ⇁
-                            </Link>
-
-                            <button onClick={SignOut} >Sign out</button>
-                        </div>
+                                <Link className="to-sign-in" to="/sign-in">
+                                    Sign in ⇁
+                                </Link>
+                            </div>
+                        </Fragment>
                     )
             }
         </Fragment>
     )
 }
 
-export default Profile;
+const mapStateToProps = createStructuredSelector({
+    user: selectCurrentUser
+})
+
+export default connect(mapStateToProps)(Profile);

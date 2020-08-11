@@ -1,0 +1,15 @@
+.view-profile {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.to-profile-border {
+    display: flex;
+    justify-content: center;
+}
+
+.to-profile {
+    margin: 40px;
+    font-size: 20px;
+}
