@@ -5,8 +5,8 @@ import PokemonCollectionActionTypes from "./pokemon-collection-types.js"
 
 // sagas
 
-export function* setPokemon() {
-    console.log("this is set pokemon")
+export function* setPokemon({ payload: pokemon }) {
+    console.log(pokemon)
 }
 
 

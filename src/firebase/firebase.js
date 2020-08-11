@@ -17,10 +17,13 @@ const config = {
 // this function creates a user or checks if one all ready exists
 
 export const createUserProfileDocument = async (userAuth, displayName) => {
+    console.log("hi")
     if (!userAuth) return;
+    console.log("hi 2")
 
     const userRef = firestore.doc(`users/${userAuth.uid}`)
     const snapShot = await userRef.get()
+    console.log(snapShot)
 
 
     if (!snapShot.exists) {
@@ -38,6 +41,20 @@ export const createUserProfileDocument = async (userAuth, displayName) => {
             console.log(error)
         }
     }
+
+    // if (snapShot.exists) {
+    //     const { email } = userAuth
+    //     try {
+    //         userRef.set({
+    //             email,
+    //             pokemon: "hello",
+    //             ...displayName
+    //         })
+    //     }
+    //     catch (error) {
+    //         console.log(error)
+    //     }
+    // }
 
     return userRef
 }

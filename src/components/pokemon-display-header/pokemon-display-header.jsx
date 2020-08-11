@@ -15,7 +15,9 @@ const PokemonDisplayHeader = ({ individualPokemon, user, individualPokemonData, 
     console.log(individualPokemonData)
 
     const onClickFunction = () => {
-        setPokemonStart(individualPokemonData)
+        const name = individualPokemon.name
+
+        setPokemonStart({ individualPokemonData })
     }
 
     return (
