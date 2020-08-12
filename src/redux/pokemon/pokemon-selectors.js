@@ -12,6 +12,11 @@ export const selectDisplayCard = createSelector(
     (pokemon) => pokemon.displayCard
 )
 
+export const selectDisplayButton = createSelector(
+    [selectPokemonState],
+    (pokemon) => pokemon.displayButton
+)
+
 export const selectIndividualPokemon = createSelector(
     [selectPokemonState],
     (pokemon) => pokemon.individualPokemon
@@ -31,3 +36,4 @@ export const selectIndividualPokemonData = createSelector(
     [selectPokemonState],
     (pokemon) => pokemon.individualPokemonData
 )
+

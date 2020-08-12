@@ -6,10 +6,30 @@ import {
     getPokemonSuccess,
     getPokemonFailure,
     displayCard,
+    displayButton,
     getIndividualPokemonSuccess,
     getIndividualPokemonFailure,
     saveIndividualPokemon
 } from "./pokemon-actions.js"
+
+// utilities
+
+const checkForExistingPokemon = (user, name) => {
+    if (!user) return;
+
+    console.log("this is check for pokemon")
+    let displayRemove = false
+
+    user.pokemon.map(pokemon => {
+        console.log(pokemon.name, name)
+        if (pokemon.name === name) {
+            displayRemove = true
+        }
+    })
+
+    return displayRemove
+
+}
 
 // sagas
 
@@ -29,8 +49,13 @@ export function* getPokemon({ payload: url }) {
     }
 }
 
-export function* getIndividualPokemon({ payload: { url, name } }) {
+export function* getIndividualPokemon({ payload: { url, name, user } }) {
+    console.log(url, name, user)
     try {
+        const toggleButton = yield checkForExistingPokemon(user, name)
+        yield put(
+            displayButton(toggleButton)
+        )
         const fetchIndividualPokemon = yield fetch(url)
             .then(response => response.json())
         yield put(

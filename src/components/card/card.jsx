@@ -1,10 +1,13 @@
 import React, { Fragment, Component } from 'react';
 import { withRouter } from "react-router-dom"
 import { connect } from 'react-redux'
+import { createStructuredSelector } from "reselect"
 
 import { getIndividualPokemonStart, saveIndividualPokemon } from "../../redux/pokemon/pokemon-actions.js"
 
 import "./card.css"
+
+import { selectCurrentUser } from "../../redux/user/user-selectors.js"
 
 
 class Card extends Component {
@@ -46,12 +49,12 @@ class Card extends Component {
 
 
     render() {
-        const { getIndividualPokemonStart, name, url, history } = this.props
+        const { getIndividualPokemonStart, name, url, history, user } = this.props
         const { spriteUrl, toggle } = this.state
 
 
         const onClickFunction = () => {
-            getIndividualPokemonStart({ url, name })
+            getIndividualPokemonStart({ url, name, user })
             history.push("/display")
         }
 
@@ -83,9 +86,12 @@ class Card extends Component {
 
 }
 
-const mapDispatchToProps = (dispatch) => ({
-    getIndividualPokemonStart: (url) => dispatch(getIndividualPokemonStart(url)),
-    // saveIndividualPokemon: (data) => dispatch(saveIndividualPokemon(data))
+const mapStateToProps = createStructuredSelector({
+    user: selectCurrentUser,
 })
 
-export default connect(null, mapDispatchToProps)(withRouter(Card));
+const mapDispatchToProps = (dispatch) => ({
+    getIndividualPokemonStart: (url) => dispatch(getIndividualPokemonStart(url)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Card));

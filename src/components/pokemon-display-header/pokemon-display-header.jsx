@@ -5,7 +5,7 @@ import { createStructuredSelector } from "reselect"
 import "./pokemon-display-header.css"
 
 import { selectCurrentUser } from "../../redux/user/user-selectors.js"
-import { selectIndividualPokemonData } from "../../redux/pokemon/pokemon-selectors.js"
+import { selectIndividualPokemonData, selectDisplayButton } from "../../redux/pokemon/pokemon-selectors.js"
 import { setPokemonStart } from "../../redux/user/user-actions.js"
 
 const Type = lazy(() => import("./type/type.jsx"))
@@ -14,30 +14,8 @@ const AddPokemonButton = lazy(() => import("./add-pokemon-button/add-pokemon-but
 
 
 class PokemonDisplayHeader extends Component {
-    constructor() {
-        super();
-        this.state = {
-            displayRemove: false
-        }
-    }
-
-    componentDidMount() {
-        const { individualPokemon, user, individualPokemonData } = this.props
-        if (!user) return;
-        console.log(individualPokemonData.name)
-
-        user.pokemon.map(pokemon => {
-            console.log(pokemon.name, individualPokemon.name)
-            if (pokemon.name === individualPokemon.name) {
-                this.setState({ displayRemove: true })
-            }
-        })
-
-    }
-
     render() {
-        const { individualPokemon, user, individualPokemonData, setPokemonStart } = this.props
-        const { displayRemove } = this.state
+        const { individualPokemon, user, individualPokemonData, setPokemonStart, displayButton } = this.props
 
         const onClickFunction = () => {
             setPokemonStart({ user, individualPokemonData })
@@ -74,8 +52,8 @@ class PokemonDisplayHeader extends Component {
                         ? (
                             <Fragment>
                                 {
-                                    displayRemove
-                                        ? (<RemovePokemonButton displayRemove={displayRemove} />)
+                                    displayButton
+                                        ? (<RemovePokemonButton displayButton={displayButton} />)
                                         : (<AddPokemonButton onClickFunction={onClickFunction} />)
                                 }
                             </Fragment>
@@ -90,7 +68,8 @@ class PokemonDisplayHeader extends Component {
 
 const mapStateToProps = createStructuredSelector({
     user: selectCurrentUser,
-    individualPokemonData: selectIndividualPokemonData
+    individualPokemonData: selectIndividualPokemonData,
+    displayButton: selectDisplayButton
 })
 
 const mapDispatchToProps = (dispatch) => ({

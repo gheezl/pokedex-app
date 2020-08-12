@@ -7,6 +7,7 @@ const INITIAL_STATE = {
     previous: null,
     individualPokemon: null,
     individualPokemonData: null,
+    displayButton: null,
     error: null
 }
 
@@ -32,12 +33,18 @@ const pokemonReducer = (state = INITIAL_STATE, action) => {
                 error: action.payload
             }
 
-        // display card
+        // display card and button
 
         case PokemonActionTypes.DISPLAY_CARD:
             return {
                 ...state,
                 displayCard: action.payload,
+            }
+
+        case PokemonActionTypes.DISPLAY_BUTTON:
+            return {
+                ...state,
+                displayButton: action.payload
             }
 
         // get individual pokemon
@@ -50,7 +57,7 @@ const pokemonReducer = (state = INITIAL_STATE, action) => {
         case PokemonActionTypes.GET_INDIVIDUAL_POKEMON_SUCCESS:
             return {
                 ...state,
-                individualPokemon: action.payload
+                individualPokemon: action.payload,
             }
 
         case PokemonActionTypes.GET_INDIVIDUAL_POKEMON_FAILURE:
