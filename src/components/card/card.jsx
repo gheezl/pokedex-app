@@ -20,6 +20,7 @@ class Card extends Component {
         }
     }
 
+
     static getDerivedStateFromProps(props, state) {
         if (props.url !== state.url) {
             return {
@@ -31,6 +32,7 @@ class Card extends Component {
     }
 
     componentDidMount() {
+
         const { url } = this.props
         this.setState({ url: url })
         fetch(url)
@@ -46,6 +48,12 @@ class Card extends Component {
                 .then(pokemon => this.setState({ spriteUrl: pokemon.sprites.front_default, toggle: true })
                 )
         }
+    }
+
+    componentWillUnmount() {
+        this.setState = (state, callback) => {
+            return;
+        };
     }
 
 
