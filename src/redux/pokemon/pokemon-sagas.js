@@ -15,20 +15,17 @@ import {
 // utilities
 
 const checkForExistingPokemon = (user, name) => {
-    if (!user) return;
+    if (!user) return null;
 
-    console.log("this is check for pokemon")
     let displayRemove = false
 
     user.pokemon.map(pokemon => {
-        console.log(pokemon.name, name)
         if (pokemon.name === name) {
             displayRemove = true
         }
     })
 
     return displayRemove
-
 }
 
 // sagas

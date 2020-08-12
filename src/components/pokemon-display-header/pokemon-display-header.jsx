@@ -1,4 +1,4 @@
-import React, { Fragment, lazy, Suspense, Component } from 'react';
+import React, { Fragment, lazy, Suspense } from 'react';
 import { connect } from 'react-redux'
 import { createStructuredSelector } from "reselect"
 
@@ -13,56 +13,54 @@ const RemovePokemonButton = lazy(() => import("./remove-pokemon-button/remove-po
 const AddPokemonButton = lazy(() => import("./add-pokemon-button/add-pokemon-button.jsx"))
 
 
-class PokemonDisplayHeader extends Component {
-    render() {
-        const { individualPokemon, user, individualPokemonData, setPokemonStart, displayButton } = this.props
+const PokemonDisplayHeader = ({ individualPokemon, user, individualPokemonData, setPokemonStart, displayButton }) => {
 
-        const onClickFunction = () => {
-            setPokemonStart({ user, individualPokemonData })
-        }
-
-        return (
-            <Fragment>
-                <div className="num">
-                    <span>
-                        num. {individualPokemon.id}
-                    </span>
-                </div>
-                <Suspense fallback="Loading...">
-                    <Type type={individualPokemon.types} />
-                </Suspense>
-                <div className="name">
-                    <h2>
-                        {individualPokemon.name}
-                    </h2>
-                </div>
-                {
-                    individualPokemon.sprites.front_default
-                        ? (
-                            <div className="sprite">
-                                <img alt="sprite" src={individualPokemon.sprites.front_default} height="200px" width="200px" />
-                            </div>
-                        )
-                        : (
-                            <span className="no-image">No Image available</span>
-                        )
-                }
-                {
-                    user
-                        ? (
-                            <Fragment>
-                                {
-                                    displayButton
-                                        ? (<RemovePokemonButton displayButton={displayButton} />)
-                                        : (<AddPokemonButton onClickFunction={onClickFunction} />)
-                                }
-                            </Fragment>
-                        )
-                        : (null)
-                }
-            </Fragment>
-        )
+    const onClickFunction = () => {
+        setPokemonStart({ user, individualPokemonData })
     }
+
+    return (
+        <Fragment>
+            <div className="num">
+                <span>
+                    num. {individualPokemon.id}
+                </span>
+            </div>
+            <Suspense fallback="Loading...">
+                <Type type={individualPokemon.types} />
+            </Suspense>
+            <div className="name">
+                <h2>
+                    {individualPokemon.name}
+                </h2>
+            </div>
+            {
+                individualPokemon.sprites.front_default
+                    ? (
+                        <div className="sprite">
+                            <img alt="sprite" src={individualPokemon.sprites.front_default} height="200px" width="200px" />
+                        </div>
+                    )
+                    : (
+                        <span className="no-image">No Image available</span>
+                    )
+            }
+            {
+                user
+                    ? (
+                        <Fragment>
+                            {
+                                displayButton
+                                    ? (<RemovePokemonButton />)
+                                    : (<AddPokemonButton onClickFunction={onClickFunction} />)
+                            }
+                        </Fragment>
+                    )
+                    : (null)
+            }
+        </Fragment>
+    )
+
 
 }
 

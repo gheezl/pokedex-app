@@ -1,35 +1,55 @@
-.your-profile {
+.username-and-email {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin-bottom: 35px;
+}
+
+.username-and-email-title {
     display: flex;
-    justify-content: center;
+    justify-content: right;
     margin-top: 35px;
+    margin-right: 5px;
+    font-size: 20px;
+}
+
+.username-and-email-display {
+    display: flex;
+    justify-content: left;
+    margin-top: 35px;
+    margin-left: 5px;
     font-size: 20px;
 }
 
 .your-profile-actions {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 .your-profile-view {
     display: flex;
-    justify-content: center;
-    grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 1;
+    justify-content: right;
+    grid-column-start: 3;
+    grid-column-end: 3;
     font-size: 20px;
     margin-top: 35px;
     cursor: pointer;
 }
 
-.your-profile-sign-out {
+.middle-arrow {
     display: flex;
     justify-content: center;
-    grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row-start: 2;
-    grid-row-end: 2;
+    grid-column-start: 4;
+    grid-column-end: 4;
+    margin-top: 35px;
+    font-size: 20px;
+}
+
+.your-profile-sign-out {
+    display: flex;
+    justify-content: left;
+    grid-column-start: 5;
+    grid-column-end: 5;
     font-size: 20px;
     margin-top: 35px;
     cursor: pointer;
@@ -40,7 +60,11 @@
         margin-top: 40vw;
     }
 
-    .your-profile {
+    .username-and-email-title {
+        font-size: 15px;
+    }
+
+    .username-and-email-display {
         font-size: 15px;
     }
 
