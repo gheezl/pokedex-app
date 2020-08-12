@@ -18,6 +18,7 @@ const Profile = lazy(() => import("./pages/profile/profile.jsx"))
 const PokemonDisplay = lazy(() => import("./pages/pokemon-display/pokemon-display.jsx"))
 const SignIn = lazy(() => import("./pages/sign-in/sign-in.jsx"))
 const SignUp = lazy(() => import("./pages/sign-up/sign-up.jsx"))
+const ViewPokemonCollection = lazy(() => import("./pages/view-pokemon-collection/view-pokemon-collection.jsx"))
 
 
 class App extends Component {
@@ -49,6 +50,7 @@ class App extends Component {
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/sign-in" render={() => user ? (<Redirect to="/" />) : (<SignIn />)} />
             <Route exact path="/sign-up" render={() => user ? (<Redirect to="/" />) : (<SignUp />)} />
+            <Route exact path="/pokemon-collection" component={ViewPokemonCollection} />
           </Suspense>
         </Switch>
       </Fragment>

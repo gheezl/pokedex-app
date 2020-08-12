@@ -47,7 +47,7 @@ export const createUserProfileDocument = async (userAuth, displayName) => {
     return userRef
 }
 
-// this is the login function
+// this is the add pokemon function
 
 export const addPokemonToFirebase = async (user, individualPokemonData) => {
     const userRef = firestore.doc(`users/${user.id}`)

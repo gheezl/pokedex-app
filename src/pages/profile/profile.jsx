@@ -12,18 +12,6 @@ const YourProfile = lazy(() => import("../../components/your-profile/your-profil
 
 
 const Profile = ({ user }) => {
-    console.log(user)
-
-    const SignOut = () => {
-        auth.signOut()
-            .then(() => {
-                console.log("Signed out")
-            })
-            .catch(error => {
-                console.log(error.message)
-            })
-    }
-
     return (
         <Fragment>
             {

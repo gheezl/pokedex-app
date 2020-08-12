@@ -1,5 +1,7 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux'
+import { Link } from "react-router-dom";
+
 
 import "./your-profile.css"
 
@@ -21,7 +23,7 @@ const YourProfile = ({ user, signOutStart }) => {
                 <span className="your-profile">Email: {user.email}</span>
 
                 <div className="your-profile-actions">
-                    <span className="your-profile-view">View your Pokémon collection</span>
+                    <Link className="your-profile-view" to="/pokemon-collection">View your Pokémon collection</Link>
 
                     <span onClick={onClickFunction} className="your-profile-sign-out">Sign out</span>
                 </div>
