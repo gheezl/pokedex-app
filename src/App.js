@@ -1,6 +1,7 @@
 import React, { Fragment, lazy, Suspense, Component } from 'react';
 import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect';
 
 import './App.css';
 
@@ -10,7 +11,7 @@ import { selectCurrentUser } from "./redux/user/user-selectors.js"
 import Header from "./components/header/header.jsx"
 import Loading from "./components/loading/loading.jsx"
 import ParticlesComponent from './components/particles/particles.jsx';
-import { createStructuredSelector } from 'reselect';
+import ErrorBoundary from "./components/error-boundary/error-boundary.jsx"
 
 const HomePage = lazy(() => import("./pages/homepage/homepage.jsx"))
 const ViewAll = lazy(() => import("./pages/view-all/view-all.jsx"))
@@ -33,18 +34,22 @@ class App extends Component {
 
     return (
       <Fragment>
-        <Header />
-        <ParticlesComponent />
+        <ErrorBoundary>
+          <Header />
+          <ParticlesComponent />
+        </ErrorBoundary>
         <Switch>
-          <Suspense fallback={<Loading />}>
-            <Route exact path="/" component={HomePage} />
-            <Route exact path="/view-all" component={ViewAll} />
-            <Route exact path="/display" component={PokemonDisplay} />
-            <Route exact path="/profile" component={Profile} />
-            <Route exact path="/sign-in" render={() => user ? (<Redirect to="/" />) : (<SignIn />)} />
-            <Route exact path="/sign-up" render={() => user ? (<Redirect to="/" />) : (<SignUp />)} />
-            <Route exact path="/pokemon-collection" component={ViewPokemonCollection} />
-          </Suspense>
+          <ErrorBoundary>
+            <Suspense fallback={<Loading />}>
+              <Route exact path="/" component={HomePage} />
+              <Route exact path="/view-all" component={ViewAll} />
+              <Route exact path="/display" component={PokemonDisplay} />
+              <Route exact path="/profile" component={Profile} />
+              <Route exact path="/sign-in" render={() => user ? (<Redirect to="/" />) : (<SignIn />)} />
+              <Route exact path="/sign-up" render={() => user ? (<Redirect to="/" />) : (<SignUp />)} />
+              <Route exact path="/pokemon-collection" component={ViewPokemonCollection} />
+            </Suspense>
+          </ErrorBoundary>
         </Switch>
       </Fragment>
     );

@@ -31,7 +31,6 @@ class Card extends Component {
     }
 
     componentDidMount() {
-
         const { url } = this.props
         this.setState({ url: url })
         fetch(url)
