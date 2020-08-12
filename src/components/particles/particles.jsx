@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Particles from 'react-particles-js';
 
 import "./particles.css"

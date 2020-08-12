@@ -1,4 +1,4 @@
-import React, { Fragment, lazy, Component, Suspense } from 'react';
+import React, { Fragment, lazy } from 'react';
 import { connect } from 'react-redux'
 import { createStructuredSelector } from "reselect"
 
@@ -21,7 +21,7 @@ const ViewPokemonCollection = ({ user }) => {
                             </div>
                             <div className="card">
                                 {user.pokemon.map(pokemon => (
-                                    <Card name={pokemon.name} url={pokemon.url} />
+                                    <Card key={pokemon.name} name={pokemon.name} url={pokemon.url} />
                                 ))}
                             </div>
                         </Fragment>

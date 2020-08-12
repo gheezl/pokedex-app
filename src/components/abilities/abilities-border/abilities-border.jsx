@@ -16,7 +16,7 @@ const AbilitiesBorder = ({ individualPokemon }) => {
             <div className="abilites-border">
                 {
                     individualPokemon.abilities.map(ability => (
-                        <Suspense fallback={<Loading />} >
+                        <Suspense key={ability.ability.name} fallback={<Loading />} >
                             <Abilities ability={ability} />
                         </Suspense>
                     ))

@@ -20,10 +20,10 @@ const Introduction = ({ user }) => {
                                 <Fragment>
                                     <span className="introduction-paragraph">
                                         Hi {user.displayName}! Welcome to your Pokédex! If you want to add a Pokémon to your personal Pokémon collection just use either the
-                                        search bar or the view all tab in the top right corner to find one.
+                                        search bar or the view all tab in the top right corner to find a Pokémon.
                                     </span>
                                     <span className="introduction-paragraph">
-                                        You can add an unlimited amount of Pokémon to your collection.
+                                        You can view your collection in the profile tab on your top right.
                                         Enjoy yourself {user.displayName}!
                                     </span>
                                 </Fragment>

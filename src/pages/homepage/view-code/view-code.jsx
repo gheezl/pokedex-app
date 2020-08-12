@@ -1,4 +1,4 @@
-import React, { Fragment, lazy, Suspense } from 'react';
+import React, { Fragment } from 'react';
 
 import './view-code.css';
 

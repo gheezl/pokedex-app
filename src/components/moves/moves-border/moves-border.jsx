@@ -18,7 +18,7 @@ const MovesBorder = ({ individualPokemon }) => {
                         <div className="moves-border">
                             {
                                 individualPokemon.moves.map(move => (
-                                    <Suspense fallback={<Loading />}>
+                                    <Suspense key={move.move.name} fallback={<Loading />}>
                                         <Moves move={move} />
                                     </Suspense>
                                 ))

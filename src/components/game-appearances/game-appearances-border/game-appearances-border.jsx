@@ -20,7 +20,7 @@ const GameAppearancesBorder = ({ individualPokemon }) => {
                             <div className="game-appearances-border">
                                 {
                                     individualPokemon.game_indices.map(appearance => (
-                                        <Suspense fallback={<Loading />} >
+                                        <Suspense key={appearance.version.name} fallback={<Loading />} >
                                             <GameAppearances appearance={appearance} />
                                         </Suspense>
                                     ))

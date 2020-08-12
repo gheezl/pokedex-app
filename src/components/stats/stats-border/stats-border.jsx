@@ -16,7 +16,7 @@ const StatsBorder = ({ individualPokemon }) => {
             <div className="stats-border">
                 {
                     individualPokemon.stats.map(stat => (
-                        <Suspense fallback={<Loading />}>
+                        <Suspense key={stat.stat.name} fallback={<Loading />}>
                             <Stats stat={stat} />
                         </Suspense>)
                     )

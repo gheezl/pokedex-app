@@ -27,6 +27,7 @@ class Card extends Component {
                 toggle: false
             }
         }
+        return null;
     }
 
     componentDidMount() {

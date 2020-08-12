@@ -1,8 +1,7 @@
-import React, { Fragment, lazy, Suspense } from 'react';
+import React, { Fragment, lazy } from 'react';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
 import { createStructuredSelector } from "reselect"
-import { auth } from '../../firebase/firebase';
 
 import "./profile.css"
 

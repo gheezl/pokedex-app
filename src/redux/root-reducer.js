@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import { persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage"
+// import { persistReducer } from "redux-persist";
+// import storage from "redux-persist/lib/storage"
 
 import pokemonReducer from "./pokemon/pokemon-reducer.js";
 import userReducer from "./user/user-reducer.js"

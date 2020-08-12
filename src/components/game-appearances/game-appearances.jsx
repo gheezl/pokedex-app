@@ -1,4 +1,4 @@
-import React, { Fragment, useState, version } from 'react';
+import React, { Fragment, useState } from 'react';
 
 import "./game-appearances.css"
 
@@ -16,7 +16,7 @@ const GameAppearances = ({ appearance }) => {
                 const data = await response.json()
                 setGenerationUrl(data.generation.name)
             } catch (error) {
-                console.log(error)
+                alert(error.message)
             }
         }
 
@@ -26,7 +26,7 @@ const GameAppearances = ({ appearance }) => {
             setGroupName(data.version_group.name)
             fetchSecondUrl(data.version_group.url)
         } catch (error) {
-            console.log(error)
+            alert(error.message)
         }
     }
 

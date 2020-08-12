@@ -2,8 +2,6 @@ import React, { Fragment, Component } from 'react';
 
 import "./sign-up.css"
 
-import { auth, createUserProfileDocument } from "../../firebase/firebase.js"
-
 import { signUpStart } from "../../redux/user/user-actions.js"
 import { connect } from 'react-redux';
 
@@ -32,8 +30,6 @@ class SignUp extends Component {
             }
             else {
                 try {
-                    // const { user } = await auth.createUserWithEmailAndPassword(email, password)
-                    // createUserProfileDocument(user, { displayName })
                     signUpStart({ displayName, email, password })
                     this.setState({
                         displayName: '',

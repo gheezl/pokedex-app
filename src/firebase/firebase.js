@@ -62,7 +62,6 @@ export const addPokemonToFirebase = async (user, individualPokemonData) => {
                 createdAt,
                 pokemon
             })
-            alert("Pokémon succesfully added.")
         }
         catch (error) {
             console.log(error)
@@ -78,7 +77,6 @@ export const removePokemonFromFirebase = async (user, individualPokemonData) => 
     const userRef = firestore.doc(`users/${user.id}`)
     const snapShot = await userRef.get()
     user.pokemon.filter(pokemonCollectionItem => {
-        console.log(pokemonCollectionItem.name, individualPokemonData.name)
         return pokemonCollectionItem.name !== individualPokemonData.name
     })
 
@@ -86,10 +84,8 @@ export const removePokemonFromFirebase = async (user, individualPokemonData) => 
     if (snapShot.exists) {
         const { email, displayName, createdAt } = user
         const pokemon = user.pokemon.filter(pokemonCollectionItem => {
-            console.log(pokemonCollectionItem.name, individualPokemonData.name)
             return pokemonCollectionItem.name !== individualPokemonData.name
         })
-        console.log(pokemon)
         try {
             userRef.set({
                 email,
@@ -97,7 +93,6 @@ export const removePokemonFromFirebase = async (user, individualPokemonData) => 
                 createdAt,
                 pokemon
             })
-            alert("Pokémon succesfully removed.")
         }
         catch (error) {
             console.log(error)

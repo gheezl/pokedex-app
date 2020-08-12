@@ -8,7 +8,7 @@ const StatsEmote = ({ name }) => {
             {
                 name === "hp"
                     ? (
-                        <span>💗</span>
+                        <span role="img" aria-label="emote">💗</span>
                     )
                     : (
                         null
@@ -17,7 +17,7 @@ const StatsEmote = ({ name }) => {
             {
                 name === "attack"
                     ? (
-                        <span>🗡️</span>
+                        <span role="img" aria-label="emote">🗡️</span>
                     )
                     : (
                         null
@@ -26,7 +26,7 @@ const StatsEmote = ({ name }) => {
             {
                 name === "defense"
                     ? (
-                        <span>🛡️</span>
+                        <span role="img" aria-label="emote">🛡️</span>
                     )
                     : (
                         null
@@ -35,7 +35,7 @@ const StatsEmote = ({ name }) => {
             {
                 name === "special-attack"
                     ? (
-                        <span>💥</span>
+                        <span role="img" aria-label="emote">💥</span>
                     )
                     : (
                         null
@@ -44,7 +44,7 @@ const StatsEmote = ({ name }) => {
             {
                 name === "special-defense"
                     ? (
-                        <span>🛡️</span>
+                        <span role="img" aria-label="emote">🛡️</span>
                     )
                     : (
                         null
@@ -53,7 +53,7 @@ const StatsEmote = ({ name }) => {
             {
                 name === "speed"
                     ? (
-                        <span>🏃</span>
+                        <span role="img" aria-label="emote">🏃</span>
                     )
                     : (
                         null

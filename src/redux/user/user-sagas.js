@@ -1,4 +1,4 @@
-import { takeLatest, put, all, call, take } from "redux-saga/effects"
+import { takeLatest, put, all, call } from "redux-saga/effects"
 
 import UserActionTypes from "./user-types.js"
 
@@ -42,7 +42,7 @@ export function* signUp({ payload: { displayName, email, password } }) {
         yield put(signUpSuccess({ id: userSnapshot.id, ...userSnapshot.data() }))
     }
     catch (error) {
-        yield alert(error.message, "Please reset your inputs, and try again.")
+        yield alert(error.message)
         yield put(signUpFailure(error))
     }
 }
@@ -61,7 +61,6 @@ export function* checkUser() {
     try {
         const user = yield getCurrentUser()
         if (!user) {
-            console.log("no user")
             return
         };
         const userRef = yield call(createUserProfileDocument, user)
@@ -74,14 +73,14 @@ export function* checkUser() {
 }
 
 export function* setPokemon({ payload: { user, individualPokemonData } }) {
-    console.log(user, individualPokemonData)
     try {
         const userRef = yield addPokemonToFirebase(user, individualPokemonData)
         const userSnapshot = yield userRef.get()
         yield put(setPokemonSuccess({ id: userSnapshot.id, ...userSnapshot.data() }))
+        yield alert("Pokémon succesfully added.")
     }
     catch (error) {
-        alert(error.message)
+        yield alert(error.message)
         yield put(
             setPokemonFailure(error.message)
         )
@@ -89,11 +88,11 @@ export function* setPokemon({ payload: { user, individualPokemonData } }) {
 }
 
 export function* removePokemon({ payload: { user, individualPokemonData } }) {
-    console.log(user, individualPokemonData)
     try {
         const userRef = yield removePokemonFromFirebase(user, individualPokemonData)
         const userSnapshot = yield userRef.get()
         yield put(setPokemonSuccess({ id: userSnapshot.id, ...userSnapshot.data() }))
+        yield alert("Pokémon succesfully removed.")
     }
     catch (error) {
         alert(error.message)

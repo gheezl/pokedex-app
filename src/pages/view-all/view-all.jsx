@@ -1,4 +1,4 @@
-import React, { Fragment, lazy, Component, Suspense } from 'react';
+import React, { Fragment, lazy, Component } from 'react';
 import { connect } from 'react-redux'
 import { createStructuredSelector } from "reselect"
 
@@ -63,7 +63,7 @@ class ViewAll extends Component {
                             ?
                             allPokemon.map(pokemon => {
                                 return (
-                                    <Card name={pokemon.name} url={pokemon.url} sprite={"hi"} />
+                                    <Card name={pokemon.name} url={pokemon.url} sprite={"hi"} key={pokemon.name} />
                                 )
                             }
                             )

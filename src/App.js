@@ -22,13 +22,6 @@ const ViewPokemonCollection = lazy(() => import("./pages/view-pokemon-collection
 
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      currentUser: null
-    }
-  }
-
   componentDidMount() {
     const { checkUserSession } = this.props
 
