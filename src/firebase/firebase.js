@@ -17,13 +17,10 @@ const config = {
 // this function creates a user or checks if one all ready exists
 
 export const createUserProfileDocument = async (userAuth, displayName) => {
-    console.log("hi")
     if (!userAuth) return;
-    console.log("hi 2")
 
     const userRef = firestore.doc(`users/${userAuth.uid}`)
     const snapShot = await userRef.get()
-    console.log(snapShot)
 
 
     if (!snapShot.exists) {
@@ -65,6 +62,42 @@ export const addPokemonToFirebase = async (user, individualPokemonData) => {
                 createdAt,
                 pokemon
             })
+            alert("Pokémon succesfully added.")
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
+
+    return userRef
+}
+
+// this is the remove pokemon function
+
+export const removePokemonFromFirebase = async (user, individualPokemonData) => {
+    const userRef = firestore.doc(`users/${user.id}`)
+    const snapShot = await userRef.get()
+    user.pokemon.filter(pokemonCollectionItem => {
+        console.log(pokemonCollectionItem.name, individualPokemonData.name)
+        return pokemonCollectionItem.name !== individualPokemonData.name
+    })
+
+
+    if (snapShot.exists) {
+        const { email, displayName, createdAt } = user
+        const pokemon = user.pokemon.filter(pokemonCollectionItem => {
+            console.log(pokemonCollectionItem.name, individualPokemonData.name)
+            return pokemonCollectionItem.name !== individualPokemonData.name
+        })
+        console.log(pokemon)
+        try {
+            userRef.set({
+                email,
+                displayName,
+                createdAt,
+                pokemon
+            })
+            alert("Pokémon succesfully removed.")
         }
         catch (error) {
             console.log(error)

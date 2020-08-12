@@ -70,3 +70,20 @@ export const setPokemonFailure = (error) => ({
     type: UserActionTypes.SET_POKEMON_FAILURE,
     payload: error
 })
+
+// remove pokemon 
+
+export const removePokemonStart = (pokemon) => ({
+    type: UserActionTypes.REMOVE_POKEMON_START,
+    payload: pokemon
+})
+
+export const removePokemonSuccess = (user) => ({
+    type: UserActionTypes.REMOVE_POKEMON_SUCCESS,
+    payload: user
+})
+
+export const removePokemonFailure = (error) => ({
+    type: UserActionTypes.REMOVE_POKEMON_FAILURE,
+    payload: error
+})

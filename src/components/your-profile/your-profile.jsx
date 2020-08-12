@@ -19,21 +19,15 @@ const YourProfile = ({ user, signOutStart }) => {
         <Fragment>
             <div className="your-profile-border">
 
-                <div className="username-and-email">
-                    <span className="username-and-email-title">Username:</span>
-                    <span className="username-and-email-display">{user.displayName}</span>
+                <span className="username-and-email-title">Username:  {user.displayName}</span>
 
-                    <span className="username-and-email-title">Email:</span>
-                    <span className="username-and-email-display">{user.email}</span>
-                </div>
 
-                <div className="your-profile-actions">
-                    <Link className="your-profile-view" to="/pokemon-collection">↽ View your Pokémon collection</Link>
+                <span className="username-and-email-title">Email:  {user.email}</span>
 
-                    <span className="middle-arrow">⇌</span>
 
-                    <span onClick={onClickFunction} className="your-profile-sign-out">Sign out of account⇁</span>
-                </div>
+                <Link className="your-profile-view" to="/pokemon-collection">View your Pokémon collection</Link>
+
+                <span onClick={onClickFunction} className="your-profile-sign-out">Sign out</span>
             </div>
         </Fragment>
     )

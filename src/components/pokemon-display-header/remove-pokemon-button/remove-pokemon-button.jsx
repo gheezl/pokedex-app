@@ -2,11 +2,11 @@ import React, { Fragment } from 'react';
 
 
 
-const RemovePokemonButton = () => {
+const RemovePokemonButton = ({ onClickFunction }) => {
     return (
         <Fragment>
             <div className="add-pokemon-border">
-                <button className="add-pokemon-button">
+                <button onClick={onClickFunction} className="add-pokemon-button">
                     remove pokemon from collection
                 </button>
             </div>

@@ -2,7 +2,7 @@ import { takeLatest, put, all, call, take } from "redux-saga/effects"
 
 import UserActionTypes from "./user-types.js"
 
-import { auth, createUserProfileDocument, getCurrentUser, addPokemonToFirebase, } from "../../firebase/firebase.js"
+import { auth, createUserProfileDocument, getCurrentUser, addPokemonToFirebase, removePokemonFromFirebase } from "../../firebase/firebase.js"
 
 import {
     signInSuccess,
@@ -42,7 +42,7 @@ export function* signUp({ payload: { displayName, email, password } }) {
         yield put(signUpSuccess({ id: userSnapshot.id, ...userSnapshot.data() }))
     }
     catch (error) {
-        yield alert(error.message)
+        yield alert(error.message, "Please reset your inputs, and try again.")
         yield put(signUpFailure(error))
     }
 }
@@ -88,6 +88,21 @@ export function* setPokemon({ payload: { user, individualPokemonData } }) {
     }
 }
 
+export function* removePokemon({ payload: { user, individualPokemonData } }) {
+    console.log(user, individualPokemonData)
+    try {
+        const userRef = yield removePokemonFromFirebase(user, individualPokemonData)
+        const userSnapshot = yield userRef.get()
+        yield put(setPokemonSuccess({ id: userSnapshot.id, ...userSnapshot.data() }))
+    }
+    catch (error) {
+        alert(error.message)
+        yield put(
+            setPokemonFailure(error.message)
+        )
+    }
+}
+
 // Listeners
 
 export function* onSignInStart() {
@@ -110,6 +125,10 @@ export function* onSetPokemonStart() {
     yield takeLatest(UserActionTypes.SET_POKEMON_START, setPokemon)
 }
 
+export function* onRemovePokemonStart() {
+    yield takeLatest(UserActionTypes.REMOVE_POKEMON_START, removePokemon)
+}
+
 // Final saga
 
 function* userSagas() {
@@ -118,7 +137,8 @@ function* userSagas() {
         call(onSignUpStart),
         call(onSignOutStart),
         call(onCheckUserSession),
-        call(onSetPokemonStart)
+        call(onSetPokemonStart),
+        call(onRemovePokemonStart)
     ])
 }
 

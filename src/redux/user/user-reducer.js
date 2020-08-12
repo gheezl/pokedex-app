@@ -7,11 +7,7 @@ const INITIAL_STATE = {
 
 const userReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case UserActionTypes.SIGN_IN_START:
-            return {
-                ...state
-            }
-
+        case UserActionTypes.REMOVE_POKEMON_SUCCESS:
         case UserActionTypes.SET_POKEMON_SUCCESS:
         case UserActionTypes.SIGN_UP_SUCCESS:
         case UserActionTypes.SIGN_IN_SUCCESS:
@@ -20,6 +16,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
                 currentUser: action.payload
             }
 
+        case UserActionTypes.REMOVE_POKEMON_FAILURE:
         case UserActionTypes.SET_POKEMON_FAILURE:
         case UserActionTypes.SIGN_IN_FAILURE:
         case UserActionTypes.SIGN_UP_FAILURE:

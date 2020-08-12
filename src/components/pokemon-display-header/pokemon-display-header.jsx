@@ -6,17 +6,21 @@ import "./pokemon-display-header.css"
 
 import { selectCurrentUser } from "../../redux/user/user-selectors.js"
 import { selectIndividualPokemonData, selectDisplayButton } from "../../redux/pokemon/pokemon-selectors.js"
-import { setPokemonStart } from "../../redux/user/user-actions.js"
+import { setPokemonStart, removePokemonStart } from "../../redux/user/user-actions.js"
 
 const Type = lazy(() => import("./type/type.jsx"))
 const RemovePokemonButton = lazy(() => import("./remove-pokemon-button/remove-pokemon-button.jsx"))
 const AddPokemonButton = lazy(() => import("./add-pokemon-button/add-pokemon-button.jsx"))
 
 
-const PokemonDisplayHeader = ({ individualPokemon, user, individualPokemonData, setPokemonStart, displayButton }) => {
+const PokemonDisplayHeader = ({ individualPokemon, user, individualPokemonData, setPokemonStart, removePokemonStart, displayButton }) => {
 
-    const onClickFunction = () => {
+    const onAddFunction = () => {
         setPokemonStart({ user, individualPokemonData })
+    }
+
+    const onRemoveFunction = () => {
+        removePokemonStart({ user, individualPokemonData })
     }
 
     return (
@@ -51,8 +55,8 @@ const PokemonDisplayHeader = ({ individualPokemon, user, individualPokemonData, 
                         <Fragment>
                             {
                                 displayButton
-                                    ? (<RemovePokemonButton />)
-                                    : (<AddPokemonButton onClickFunction={onClickFunction} />)
+                                    ? (<RemovePokemonButton onClickFunction={onRemoveFunction} />)
+                                    : (<AddPokemonButton onClickFunction={onAddFunction} />)
                             }
                         </Fragment>
                     )
@@ -71,7 +75,8 @@ const mapStateToProps = createStructuredSelector({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    setPokemonStart: (pokemon) => dispatch(setPokemonStart(pokemon))
+    setPokemonStart: (pokemon) => dispatch(setPokemonStart(pokemon)),
+    removePokemonStart: (pokemon) => dispatch(removePokemonStart(pokemon))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PokemonDisplayHeader);
