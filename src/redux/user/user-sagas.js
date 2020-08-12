@@ -2,15 +2,20 @@ import { takeLatest, put, all, call, take } from "redux-saga/effects"
 
 import UserActionTypes from "./user-types.js"
 
-import { auth, createUserProfileDocument, getCurrentUser, loginToProfile } from "../../firebase/firebase.js"
+import { auth, createUserProfileDocument, getCurrentUser, addPokemonToFirebase, } from "../../firebase/firebase.js"
 
 import {
     signInSuccess,
     signInFailure,
+
     signUpSuccess,
     signUpFailure,
+
     signOutSuccess,
     signOutFailure,
+
+    setPokemonSuccess,
+    setPokemonFailure
 } from "./user-actions.js"
 
 
@@ -68,6 +73,21 @@ export function* checkUser() {
     }
 }
 
+export function* setPokemon({ payload: { user, individualPokemonData } }) {
+    console.log(user, individualPokemonData)
+    try {
+        const userRef = yield addPokemonToFirebase(user, individualPokemonData)
+        const userSnapshot = yield userRef.get()
+        yield put(setPokemonSuccess({ id: userSnapshot.id, ...userSnapshot.data() }))
+    }
+    catch (error) {
+        alert(error.message)
+        yield put(
+            setPokemonFailure(error.message)
+        )
+    }
+}
+
 // Listeners
 
 export function* onSignInStart() {
@@ -86,6 +106,9 @@ export function* onCheckUserSession() {
     yield takeLatest(UserActionTypes.CHECK_USER_SESSION, checkUser)
 }
 
+export function* onSetPokemonStart() {
+    yield takeLatest(UserActionTypes.SET_POKEMON_START, setPokemon)
+}
 
 // Final saga
 
@@ -94,7 +117,8 @@ function* userSagas() {
         call(onSignInStart),
         call(onSignUpStart),
         call(onSignOutStart),
-        call(onCheckUserSession)
+        call(onCheckUserSession),
+        call(onSetPokemonStart)
     ])
 }
 

@@ -29,7 +29,7 @@ export const createUserProfileDocument = async (userAuth, displayName) => {
     if (!snapShot.exists) {
         const { email } = userAuth
         const createdAt = new Date()
-        const pokemon = [1]
+        const pokemon = []
 
         try {
             userRef.set({
@@ -50,18 +50,14 @@ export const createUserProfileDocument = async (userAuth, displayName) => {
 // this is the login function
 
 export const addPokemonToFirebase = async (user, individualPokemonData) => {
-    console.log(user, individualPokemonData, user.createdAt)
-
     const userRef = firestore.doc(`users/${user.id}`)
     const snapShot = await userRef.get()
     user.pokemon.push(individualPokemonData)
 
 
     if (snapShot.exists) {
-        console.log("this is add pokemon 2")
         const { email, displayName, createdAt } = user
         const pokemon = user.pokemon
-        console.log(pokemon)
         try {
             userRef.set({
                 email,

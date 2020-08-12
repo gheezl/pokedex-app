@@ -6,7 +6,7 @@ import "./pokemon-display-header.css"
 
 import { selectCurrentUser } from "../../redux/user/user-selectors.js"
 import { selectIndividualPokemonData } from "../../redux/pokemon/pokemon-selectors.js"
-import { setPokemonStart } from "../../redux/pokemon-collection/pokemon-collection-actions.js"
+import { setPokemonStart } from "../../redux/user/user-actions.js"
 
 const Type = lazy(() => import("./type/type.jsx"))
 
@@ -15,8 +15,6 @@ const PokemonDisplayHeader = ({ individualPokemon, user, individualPokemonData, 
     console.log(individualPokemonData)
 
     const onClickFunction = () => {
-        const name = individualPokemon.name
-
         setPokemonStart({ user, individualPokemonData })
     }
 

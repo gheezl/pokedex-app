@@ -53,3 +53,20 @@ export const signOutFailure = () => ({
 export const checkUserSession = () => ({
     type: UserActionTypes.CHECK_USER_SESSION
 })
+
+// set pokemon collection
+
+export const setPokemonStart = (pokemon) => ({
+    type: UserActionTypes.SET_POKEMON_START,
+    payload: pokemon
+})
+
+export const setPokemonSuccess = (user) => ({
+    type: UserActionTypes.SET_POKEMON_SUCCESS,
+    payload: user
+})
+
+export const setPokemonFailure = (error) => ({
+    type: UserActionTypes.SET_POKEMON_FAILURE,
+    payload: error
+})

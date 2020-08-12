@@ -12,6 +12,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
                 ...state
             }
 
+        case UserActionTypes.SET_POKEMON_SUCCESS:
         case UserActionTypes.SIGN_UP_SUCCESS:
         case UserActionTypes.SIGN_IN_SUCCESS:
             return {
@@ -19,6 +20,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
                 currentUser: action.payload
             }
 
+        case UserActionTypes.SET_POKEMON_FAILURE:
         case UserActionTypes.SIGN_IN_FAILURE:
         case UserActionTypes.SIGN_UP_FAILURE:
             return {
