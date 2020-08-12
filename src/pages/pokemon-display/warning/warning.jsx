@@ -12,6 +12,7 @@ const Warning = () => {
                     width="250"
                     height="334"
                     src="confused-pikachu.jpg"
+                    alt=""
                 />
             </div>
             <div className="warning-message">

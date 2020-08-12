@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom"
 import { connect } from 'react-redux'
 import { createStructuredSelector } from "reselect"
 
-import { getIndividualPokemonStart, saveIndividualPokemon } from "../../redux/pokemon/pokemon-actions.js"
+import { getIndividualPokemonStart } from "../../redux/pokemon/pokemon-actions.js"
 
 import "./card.css"
 
@@ -19,7 +19,6 @@ class Card extends Component {
             toggle: true
         }
     }
-
 
     static getDerivedStateFromProps(props, state) {
         if (props.url !== state.url) {
@@ -60,7 +59,6 @@ class Card extends Component {
     render() {
         const { getIndividualPokemonStart, name, url, history, user } = this.props
         const { spriteUrl, toggle } = this.state
-
 
         const onClickFunction = () => {
             getIndividualPokemonStart({ url, name, user })
