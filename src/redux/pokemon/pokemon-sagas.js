@@ -48,6 +48,7 @@ export function* getPokemon({ payload: url }) {
 }
 
 export function* getIndividualPokemon({ payload: { url, name, user } }) {
+    console.log(url, name, user)
     try {
         const toggleButton = yield checkForExistingPokemon(user, name)
         yield put(
