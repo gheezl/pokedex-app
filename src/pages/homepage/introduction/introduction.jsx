@@ -36,7 +36,7 @@ const Introduction = ({ user }) => {
                                         on your top right, or you can use the Search bar to look up a specific Pokémon.
                                     </span>
                                     <span className="introduction-paragraph">
-                                        If you create an account and sign in, you can also add Pokémon to your own personal Pokémon collection for you to view.
+                                        If you create an account and sign in, you can also add Pokémon to your own personal Pokémon collection.
                                     </span>
                                 </Fragment>
                             )
