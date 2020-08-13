@@ -14,6 +14,19 @@ const config = {
     measurementId: "G-ZWS44T949C"
 }
 
+// utitlity functions
+
+const setToUser = (pokemon, userRef) => {
+    try {
+        userRef.set({
+            pokemon
+        }, { merge: true })
+    }
+    catch (error) {
+        console.log(error)
+    }
+}
+
 // this function creates a user or checks if one all ready exists
 
 export const createUserProfileDocument = async (userAuth, displayName) => {
@@ -44,28 +57,18 @@ export const createUserProfileDocument = async (userAuth, displayName) => {
     return userRef
 }
 
+
+
 // this is the add pokemon function
 
 export const addPokemonToFirebase = async (user, individualPokemonData) => {
     const userRef = firestore.doc(`users/${user.id}`)
     const snapShot = await userRef.get()
-    user.pokemon.push(individualPokemonData)
-
 
     if (snapShot.exists) {
-        const { email, displayName, createdAt } = user
+        user.pokemon.push(individualPokemonData)
         const pokemon = user.pokemon
-        try {
-            userRef.set({
-                email,
-                displayName,
-                createdAt,
-                pokemon
-            })
-        }
-        catch (error) {
-            console.log(error)
-        }
+        setToUser(pokemon, userRef)
     }
 
     return userRef
@@ -76,27 +79,12 @@ export const addPokemonToFirebase = async (user, individualPokemonData) => {
 export const removePokemonFromFirebase = async (user, individualPokemonData) => {
     const userRef = firestore.doc(`users/${user.id}`)
     const snapShot = await userRef.get()
-    user.pokemon.filter(pokemonCollectionItem => {
-        return pokemonCollectionItem.name !== individualPokemonData.name
-    })
-
 
     if (snapShot.exists) {
-        const { email, displayName, createdAt } = user
         const pokemon = user.pokemon.filter(pokemonCollectionItem => {
             return pokemonCollectionItem.name !== individualPokemonData.name
         })
-        try {
-            userRef.set({
-                email,
-                displayName,
-                createdAt,
-                pokemon
-            })
-        }
-        catch (error) {
-            console.log(error)
-        }
+        setToUser(pokemon, userRef)
     }
 
     return userRef

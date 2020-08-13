@@ -36,7 +36,7 @@ class App extends Component {
       <Fragment>
         <ErrorBoundary>
           <Header />
-          <ParticlesComponent />
+          {/* <ParticlesComponent /> */}
         </ErrorBoundary>
         <Switch>
           <ErrorBoundary>
