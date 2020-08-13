@@ -24,7 +24,9 @@ class ViewAll extends Component {
 
 
     componentDidMount() {
-        this.props.getPokemonStart("https://pokeapi.co/api/v2/pokemon?limit=28")
+        const { getPokemonStart } = this.props
+
+        getPokemonStart("https://pokeapi.co/api/v2/pokemon?limit=28")
     }
 
     render() {
