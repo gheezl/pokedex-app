@@ -58,11 +58,9 @@ const PokemonDisplayHeader = ({ individualPokemon, user, individualPokemonData, 
             </Suspense>
 
             <div className="name">
-
                 <h2>
                     {individualPokemon.name}
                 </h2>
-
             </div>
 
             {

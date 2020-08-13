@@ -54,17 +54,18 @@
     }
 
     .previous-arrow {
+        justify-content: right;
         grid-column-start: 1;
         grid-column-end: 1;
     }
 
     .id-num {
-        
         grid-column-start: 2;
         grid-column-end: 2;
     }
 
     .next-arrow {
+        justify-content: left;
         grid-column-start: 3;
         grid-column-end: 3;
     }
