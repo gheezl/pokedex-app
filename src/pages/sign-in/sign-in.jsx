@@ -24,10 +24,6 @@ class SignIn extends Component {
 
             try {
                 signInStart({ email, password })
-                this.setState({
-                    email: '',
-                    password: '',
-                })
             }
             catch (error) {
                 alert(error.message)

@@ -31,12 +31,6 @@ class SignUp extends Component {
             else {
                 try {
                     signUpStart({ displayName, email, password })
-                    this.setState({
-                        displayName: '',
-                        email: '',
-                        password: '',
-                        verifyPassword: '',
-                    })
                 }
                 catch (error) {
                     alert(error.message)
@@ -66,7 +60,7 @@ class SignUp extends Component {
                         <input onChange={onChange} className="input-field" type="password" placeholder="verify password" name="verifyPassword" required />
                         <button type="submit" className="custom-button">
                             submit
-                    </button>
+                        </button>
                     </form>
                 </div>
             </Fragment>
