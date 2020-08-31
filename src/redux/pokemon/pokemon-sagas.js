@@ -21,9 +21,9 @@ const checkForExistingPokemon = (user, name) => {
 
     user.pokemon.map(pokemon => {
         if (pokemon.name === name) {
-            displayRemove = true
-            return;
+            return displayRemove = true
         }
+        return displayRemove;
     })
 
     return displayRemove
