@@ -13,8 +13,9 @@ const Search = ({ getIndividualPokemonStart, history, user }) => {
     let [inputData, setInputData] = useState("1")
 
     const onClickFunction = () => {
-        const url = `https://pokeapi.co/api/v2/pokemon/${inputData.toLowerCase()}/`
-        const name = inputData.toLowerCase()
+        const url = `https://pokeapi.co/api/v2/pokemon/${inputData.toLowerCase().trim()}/`
+        const name = inputData.toLowerCase().trim()
+        console.log(name)
 
         getIndividualPokemonStart({ url, name, user })
         history.push("/display")

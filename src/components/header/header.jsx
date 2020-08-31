@@ -1,9 +1,9 @@
-import React, { Fragment, lazy, Suspense, useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Link } from "react-router-dom";
 
 import "./header.css"
 
-const Search = lazy(() => import("../search/search.jsx"))
+import Search from "../search/search.jsx"
 
 
 const Header = () => {
@@ -27,9 +27,7 @@ const Header = () => {
                     {
                         toggle
                             ? (
-                                <Suspense fallback=" loading...">
-                                    <Search />
-                                </Suspense>
+                                <Search />
                             )
                             : (
                                 null

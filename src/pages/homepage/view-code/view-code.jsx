@@ -10,7 +10,6 @@ const ViewCode = () => {
                 <h2>View code</h2>
             </div>
             <a className="link-image" href="https://github.com/gheezl/pokedex-app">
-                <img className="github-link" alt="" src="github-512.webp" height="25px" />
                 <span className="repository">
                     View github repository
                 </span>
@@ -18,6 +17,5 @@ const ViewCode = () => {
         </Fragment>
     )
 }
-
 
 export default ViewCode;
