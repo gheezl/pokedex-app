@@ -19,8 +19,6 @@ const Warning = lazy(() => import("./warning/warning.jsx"))
 
 
 const PokemonDisplay = ({ individualPokemon }) => {
-    // const { abilities, forms, game_indices, height, held_items, id, location_area_encounters, moves, name, species, sprites, stats, types, weight } = individualPokemon
-
     return (individualPokemon
         ?
         (

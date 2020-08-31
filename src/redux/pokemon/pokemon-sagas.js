@@ -55,6 +55,7 @@ export function* getIndividualPokemon({ payload: { url, name, user } }) {
         )
         const fetchIndividualPokemon = yield fetch(url)
             .then(response => response.json())
+
         yield put(
             getIndividualPokemonSuccess(fetchIndividualPokemon)
         )
