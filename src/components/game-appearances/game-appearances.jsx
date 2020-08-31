@@ -34,7 +34,7 @@ const GameAppearances = ({ appearance }) => {
     return (
         <Fragment>
             <div onClick={onClickFunction} className="appearances-border">
-                <span> pokemon {appearance.version.name} {
+                <span className="appearances"> pokemon {appearance.version.name} {
                     toggle
                         ? (
                             <span>❱</span>
